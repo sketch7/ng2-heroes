@@ -5,7 +5,7 @@
 ```
 npm install
 
-jspm install
+create symbolic link in `wwwroot` to point to `node_modules`
 ```
 
 ## Build
