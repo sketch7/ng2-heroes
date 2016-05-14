@@ -1,0 +1,28 @@
+@import "variables";
+
+.navbar {
+	background: $navbar-bg-color;
+	
+	&,
+	.navbar-nav li {
+		a {
+		color: $navbar-text-color;
+			&:focus,
+			&:hover {
+				background: $navbar-active-bg-hover-color;
+			}
+		}
+	}
+	
+	.navbar-brand {
+		&:focus,
+		&:hover {
+			color: $navbar-brand-text-hover-color;
+			background: $navbar-brand-bg-hover-color;
+		}
+	}
+	
+	.active a {
+		background: $navbar-active-bg-color;
+	}
+}

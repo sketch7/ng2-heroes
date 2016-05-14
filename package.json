@@ -1,0 +1,42 @@
+{
+  "name": "angular2-tabs-tut",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "jspm": {
+    "directories": {
+      "baseURL": "wwwroot"
+    },
+    "configFile": "wwwroot/system.config.js",
+    "dependencies": {
+      "angular2": "npm:angular2@2.0.0-beta.7",
+      "bootstrap": "github:twbs/bootstrap@^3.3.6",
+      "css": "github:systemjs/plugin-css@^0.1.20",
+      "lodash": "npm:lodash@^4.0.0"
+    },
+    "devDependencies": {}
+  },
+  "devDependencies": {
+    "angular2": "^2.0.0-beta.11",
+    "browser-sync": "^2.11.1",
+    "connect-history-api-fallback": "^1.1.0",
+    "del": "^2.2.0",
+    "gulp": "^3.9.1",
+    "gulp-plumber": "^1.0.1",
+    "gulp-sass": "^2.2.0",
+    "gulp-sourcemaps": "^1.6.0",
+    "gulp-typescript": "^2.12.1",
+    "gulp-util": "^3.0.7",
+    "jspm": "^0.16.23",
+    "require-dir": "^0.3.0",
+    "run-sequence": "^1.1.5",
+    "rxjs": "^5.0.0-beta.2",
+    "typescript": "^1.8.9"
+  },
+  "dependencies": {}
+}

@@ -1,0 +1,20 @@
+{
+	"compilerOptions": {
+		"module": "amd",
+		"moduleResolution": "node",
+		"target": "es5",
+		"emitDecoratorMetadata": true,
+		"experimentalDecorators": true,
+		"declaration": false,
+		"noImplicitReturns": true,
+		"noImplicitAny": true,
+		"noFallthroughCasesInSwitch": true
+	},
+	"exclude": [
+		"node_modules",
+		"wwwroot",
+		"dist",
+		"typings/main.d.ts",
+		"typings/main"
+	]
+}

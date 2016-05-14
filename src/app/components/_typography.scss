@@ -1,0 +1,26 @@
+@import "variables";
+
+body {
+	color: $body-text-color;
+	font-family: $body-font-family;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	color: $primary-light-color;
+	font-family: $heading-font-family;
+}
+
+h2 {
+	color: $primary-light-color;
+}
+
+h3 {
+	color: $primary-lighter-color;
+}
+
+a {
+	color: $primary-light-color;
+	&:hover {
+		color: $primary-lighter-color;
+	}
+}

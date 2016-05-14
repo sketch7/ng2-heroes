@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>App Heroes - Angular 2</title>
+	<base href="/">
+	<link href="http://fonts.googleapis.com/css?family=Open+Sans|Montserrat:400,700" rel="stylesheet" type="text/css">
+	<link href="./jspm_packages/github/twbs/bootstrap@3.3.6/css/bootstrap.css" type="text/css" rel="stylesheet">
+	<!--<link href="./dist/assets/app-light.theme.css" type="text/css" rel="stylesheet">-->
+	<link href="./dist/assets/app-dark.theme.css" type="text/css" rel="stylesheet">
+</head>
+
+<body>
+
+	<app-heroes>
+		<div class="splash-overlay">
+			<div class="loader">
+				<div class="side"></div>
+				<div class="side"></div>
+				<div class="side"></div>
+				<div class="side"></div>
+				<div class="side"></div>
+				<div class="side"></div>
+				<div class="side"></div>
+				<div class="side"></div>
+			</div>
+		</div>
+	</app-heroes>
+
+	<script src="./angular2-polyfills.js"></script>
+	<script src="./jspm_packages/system.js"></script>
+	<script src="./system.config.js"></script>
+	<script>
+		System.import("main");
+	</script>
+
+</body>
+
+</html>

@@ -1,0 +1,8 @@
+@import "../colors";
+
+// $primary-color: $darkred;
+$primary-color: $haiti;
+
+$navbar-text-color: $white;
+
+$navbar-active-bg-color: lighten($primary-color, 20%);

@@ -1,0 +1,42 @@
+@import "variables";
+
+.hero-list {
+	display: flex;
+	flex-flow: row wrap;
+	
+	.hero-container {
+		max-width: 216px;
+		margin: 0.75em 0.4em 0 0.4em;
+		
+		a, a:hover {
+			text-decoration: none;
+		}
+		
+		&:hover {
+			transform: translateY(-5px);
+			.img-thumbnail {
+				background: $primary-lighter-color;
+			}
+		}
+	}
+	
+	.hero-name {
+		text-transform: uppercase;
+		line-height: 1.2;
+		font-size: 1.5rem;
+		padding: 0;
+		margin: 0;
+	}
+	
+	.hero-caption {
+		@extend .hero-name;
+		font-size: 1.3rem;
+		color: $secondary-color;
+	}
+}
+
+.hero-role {
+	font-weight: normal;
+	font-size: 0.75em;
+	background: $primary-color;
+}
