@@ -1,5 +1,5 @@
-import {Component, OnInit} from "angular2/core";
-import {ROUTER_DIRECTIVES, RouteParams} from "angular2/router";
+import {Component, OnInit} from "@angular/core";
+import {RouteParams, ROUTER_DIRECTIVES} from "@angular/router-deprecated";
 import config from "../../app.config";
 import {Hero} from "./hero.model";
 import {HeroService} from "./hero.service";

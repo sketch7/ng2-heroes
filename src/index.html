@@ -6,7 +6,7 @@
 	<title>App Heroes - Angular 2</title>
 	<base href="/">
 	<link href="http://fonts.googleapis.com/css?family=Open+Sans|Montserrat:400,700" rel="stylesheet" type="text/css">
-	<link href="./jspm_packages/github/twbs/bootstrap@3.3.6/css/bootstrap.css" type="text/css" rel="stylesheet">
+	<link href="./node_modules/bootstrap/dist/css/bootstrap.css" type="text/css" rel="stylesheet">
 	<!--<link href="./dist/assets/app-light.theme.css" type="text/css" rel="stylesheet">-->
 	<link href="./dist/assets/app-dark.theme.css" type="text/css" rel="stylesheet">
 </head>
@@ -28,11 +28,26 @@
 		</div>
 	</app-heroes>
 
-	<script src="./angular2-polyfills.js"></script>
-	<script src="./jspm_packages/system.js"></script>
+	<!-- build:js assets/bundle.js -->
+	<!--<script src="node_modules/jquery/dist/jquery.js"></script>
+	<script src="node_modules/bootstrap-sass/assets/javascripts/bootstrap.js"></script>-->
+
+	<!-- 1. Load libraries -->
+	<!-- Polyfill(s) for older browsers -->
+	<script src="./node_modules/es6-shim/es6-shim.min.js"></script>
+
+	<script src="./node_modules/zone.js/dist/zone.js"></script>
+	<script src="./node_modules/reflect-metadata/Reflect.js"></script>
+	<script src="./node_modules/systemjs/dist/system.js"></script>
+	<!-- endbuild -->
+
+	<!-- build:remove -->
 	<script src="./system.config.js"></script>
+	<!-- endbuild -->
+
 	<script>
-		System.import("main");
+		System.import("main.js")
+			.catch(function(err) { console.error(err); });
 	</script>
 
 </body>
