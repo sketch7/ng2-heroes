@@ -19,7 +19,7 @@ import {UserInfoService} from "./areas/user/user";
 ])
 export class AppComponent implements OnInit {
 
-	title = config.name;
+	appTitle = config.name;
 	appVersion = config.version;
 	unreadNotificationsCount = 3;
 	user: string;
