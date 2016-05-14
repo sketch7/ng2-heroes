@@ -1,10 +1,8 @@
 @import "variables";
-
 html {
-	background: linear-gradient(
-		rgba(220, 220, 220, 0.7),
-		rgba(175, 175, 175, 0.5)
-		),
+	background: linear-gradient( 
+		rgba(220, 220, 220, 0.7), 
+		rgba(175, 175, 175, 0.5)), 
 		no-repeat center center url("/dist/assets/imgs/heroes_of_the_storm-game-wallpaper-art-high_resolution-mr__jack-1920x1200.jpg");
 	background-size: cover;
 }
@@ -12,7 +10,6 @@ html {
 body {
 	background: none!important;
 	margin-bottom: 60px;
-		
 	.main.container {
 		padding: 60px 15px 20px;
 	}
@@ -30,8 +27,7 @@ footer {
 	width: 100%;
 	height: 60px;
 	background: $secondary-bg-color;
-	
-	> .container{
+	> .container {
 		padding: 0 15px;
 	}
 }
@@ -43,7 +39,7 @@ footer {
 		}
 		img {
 			width: 30px;
-			height:30px;
+			height: 30px;
 		}
 	}
 }
