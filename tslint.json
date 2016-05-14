@@ -46,7 +46,7 @@
 		"no-string-literal": true,
 		"no-switch-case-fall-through": true,
 		"trailing-comma": [
-			true,
+			false,
 			{
 				"singleline": "never",
 				"multiline": "never"
@@ -71,7 +71,7 @@
 			"double"
 		],
 		"radix": true,
-		"semicolon": true,
+		"semicolon": [true, "always"],
 		"triple-equals": [
 			true,
 			"allow-null-check"
