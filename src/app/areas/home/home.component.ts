@@ -1,9 +1,9 @@
 import {Component} from "@angular/core";
-import config from "../../app.config";
+import consts from "../../app.const";
 
 @Component({
-	templateUrl: `${config.basePath}/areas/home/home.html`
+	templateUrl: `${consts.basePath}/areas/home/home.html`
 })
 export class HomeComponent {
-	title = config.name;
+	title = consts.name;
 }

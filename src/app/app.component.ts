@@ -1,14 +1,14 @@
 // import "bootstrap/css/bootstrap.css!";
 import {Component, OnInit} from "@angular/core";
 import {RouteConfig, ROUTER_DIRECTIVES} from "@angular/router-deprecated";
-import config from "./app.config";
+import consts from "./app.const";
 import {HeroDetailComponent, HeroListComponent, HeroService} from "./areas/hero/hero";
 import {HomeComponent} from "./areas/home/home";
 import {UserInfoService} from "./areas/user/user";
 
 @Component({
 	selector: "app-heroes",
-	templateUrl: `${config.basePath}/app.html`,
+	templateUrl: `${consts.basePath}/app.html`,
 	directives: [HeroDetailComponent, HeroListComponent, HomeComponent, ROUTER_DIRECTIVES],
 	providers: [HeroService, UserInfoService],
 })
@@ -19,8 +19,8 @@ import {UserInfoService} from "./areas/user/user";
 ])
 export class AppComponent implements OnInit {
 
-	appTitle = config.name;
-	appVersion = config.version;
+	appTitle = consts.name;
+	appVersion = consts.version;
 	unreadNotificationsCount = 3;
 	user: string;
 
