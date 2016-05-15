@@ -9,7 +9,7 @@ import consts from "./app.const";
 import {HeroDetailComponent, HeroListComponent, HeroService, HeroClient} from "./areas/hero/hero";
 import {HomeComponent} from "./areas/home/home";
 import {UserInfoService} from "./areas/user/user";
-import {MockHeroData} from "./areas/hero/hero";
+import {MockAppData} from "./app.mock-data";
 
 @Component({
 	selector: "app-heroes",
@@ -27,7 +27,7 @@ import {MockHeroData} from "./areas/hero/hero";
 		HTTP_PROVIDERS,
 		// in memory web api providers
 		provide(XHRBackend, { useClass: InMemoryBackendService }),
-		provide(SEED_DATA, { useClass: MockHeroData }),
+		provide(SEED_DATA, { useClass: MockAppData }),
 	],
 })
 @RouteConfig([
