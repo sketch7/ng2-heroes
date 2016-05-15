@@ -26,7 +26,7 @@ export class HeroListComponent implements OnInit {
 
 	getHeroes() {
 		this._heroService.getAll()
-			.then((x: Hero[]) => this.heroes = x);
+			.subscribe(x => this.heroes = x);
 	}
 
 }

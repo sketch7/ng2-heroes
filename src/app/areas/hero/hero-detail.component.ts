@@ -27,6 +27,6 @@ export class HeroDetailComponent implements OnInit {
 
 	getHero(key: string) {
 		return this._heroService.getByKey(key)
-			.then((hero: Hero) => this.hero = hero);
+			.subscribe((hero: Hero) => this.hero = hero);
 	}
 }

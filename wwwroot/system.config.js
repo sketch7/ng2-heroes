@@ -17,6 +17,7 @@
         "test": "test",
         "rxjs": "n:rxjs",
         "@angular": "n:@angular",
+        "angular2-in-memory-web-api": "n:angular2-in-memory-web-api",
         "lodash": "n:lodash"
     };
 
@@ -29,6 +30,9 @@
             defaultExtension: "js"
         },
         "rxjs": {
+            defaultExtension: "js"
+        },        
+        "angular2-in-memory-web-api": {
             defaultExtension: "js"
         }
     };

@@ -1,18 +1,28 @@
 import {Injectable} from "@angular/core";
+import {Observable} from "rxjs/Observable";
 import * as _ from "lodash";
+
 import {Hero} from "./hero.model";
-import {Heroes} from "./mock-heroes";
+import {HeroClient} from "./hero.client";
 
 
 @Injectable()
 export class HeroService {
-	getAll(): Promise<Hero[]> {
-		return Promise.resolve(Heroes);
+
+	constructor(
+		private heroClient: HeroClient
+	) {
+
 	}
 
-	getByKey(key: string): Promise<Hero> {
-		return this.getAll().then((x: Hero[]) => {
-			return _.find(x, { key: key });
-		});
+	getAll(): Observable<Hero[]> {
+		return this.heroClient.getAll();
+	}
+
+	getByKey(key: string): Observable<Hero> {
+		return this.getAll()
+			.map(x => {
+				return _.find(x, { key: key });
+			});
 	}
 }

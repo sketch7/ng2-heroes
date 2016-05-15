@@ -1,6 +1,7 @@
 import {Hero} from "./hero.model";
+import {InMemoryDbService} from "angular2-in-memory-web-api/core";
 
-export let Heroes: Hero[] = [
+export let heroes: Hero[] = [
 	{
 		key: "azmodan",
 		title: "Azmodan",
@@ -58,3 +59,9 @@ export let Heroes: Hero[] = [
 		description: "Like all Blood Elves, Prince Kael'thas was transformed by the fall of Quel'thalas. Desperate to save his people from being consumed by their magical addiction, he joined forces with the Burning Legion and now lords over Tempest Keep."
 	},
 ];
+
+export class MockHeroData implements InMemoryDbService {
+	createDb() {
+		return { heroes };
+	}
+}
