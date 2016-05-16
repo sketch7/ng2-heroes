@@ -10,6 +10,7 @@ import {HeroDetailComponent, HeroListComponent, HeroService, HeroClient} from ".
 import {HomeComponent} from "./areas/home/home";
 import {UserInfoService} from "./areas/user/user";
 import {MockAppData} from "./app.mock-data";
+import {LOGGER_PROVIDERS} from "./core/logger/logger";
 
 @Component({
 	selector: "app-heroes",
@@ -28,6 +29,7 @@ import {MockAppData} from "./app.mock-data";
 		// in memory web api providers
 		provide(XHRBackend, { useClass: InMemoryBackendService }),
 		provide(SEED_DATA, { useClass: MockAppData }),
+		LOGGER_PROVIDERS
 	],
 })
 @RouteConfig([

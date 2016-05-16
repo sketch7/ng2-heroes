@@ -4,15 +4,19 @@ import * as _ from "lodash";
 
 import {Hero} from "./hero.model";
 import {HeroClient} from "./hero.client";
-
+import {LoggerFactory, ILog} from "../../core/logger/logger";
 
 @Injectable()
 export class HeroService {
 
-	constructor(
-		private heroClient: HeroClient
-	) {
+	private logger: ILog;
 
+	constructor(
+		private heroClient: HeroClient,
+		private loggerFactory: LoggerFactory
+	) {
+		this.logger = loggerFactory.getInstance("heroService");
+		this.logger.debug("ctor");
 	}
 
 	getAll(): Observable<Hero[]> {
