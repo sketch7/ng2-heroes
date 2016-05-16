@@ -3,7 +3,7 @@ import "rxjs/Rx";
 import {Component, OnInit, provide} from "@angular/core";
 import {RouteConfig, ROUTER_DIRECTIVES} from "@angular/router-deprecated";
 import {HTTP_PROVIDERS, XHRBackend} from "@angular/http";
-import {InMemoryBackendService, SEED_DATA} from "angular2-in-memory-web-api/core";
+import {InMemoryBackendService, SEED_DATA, InMemoryBackendConfig} from "angular2-in-memory-web-api/core";
 
 import consts from "./app.const";
 import {HeroDetailComponent, HeroListComponent, HeroService, HeroClient} from "./areas/hero/hero";
@@ -28,6 +28,7 @@ import {MockAppData} from "./app.mock-data";
 		// in memory web api providers
 		provide(XHRBackend, { useClass: InMemoryBackendService }),
 		provide(SEED_DATA, { useClass: MockAppData }),
+		provide(InMemoryBackendConfig, { useValue: { delay: 120 } }),
 	],
 })
 @RouteConfig([
