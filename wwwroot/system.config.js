@@ -18,6 +18,7 @@
         "rxjs": "n:rxjs",
         "@angular": "n:@angular",
         "angular2-in-memory-web-api": "n:angular2-in-memory-web-api",
+        "ssv-ng2-core": "n:ssv-ng2-core",
         "lodash": "n:lodash"
     };
 
@@ -33,6 +34,10 @@
             defaultExtension: "js"
         },        
         "angular2-in-memory-web-api": {
+            defaultExtension: "js"
+        },
+        "ssv-ng2-core": {
+            main: "_artifact/amd/index.js",
             defaultExtension: "js"
         }
     };

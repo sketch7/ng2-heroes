@@ -4,13 +4,13 @@ import {Component, OnInit, provide} from "@angular/core";
 import {RouteConfig, ROUTER_DIRECTIVES} from "@angular/router-deprecated";
 import {HTTP_PROVIDERS, XHRBackend} from "@angular/http";
 import {InMemoryBackendService, SEED_DATA} from "angular2-in-memory-web-api/core";
+import {LOGGER_PROVIDERS} from "ssv-ng2-core";
 
 import consts from "./app.const";
 import {HeroDetailComponent, HeroListComponent, HeroService, HeroClient} from "./areas/hero/hero";
 import {HomeComponent} from "./areas/home/home";
 import {UserInfoService} from "./areas/user/user";
 import {MockAppData} from "./app.mock-data";
-import {LOGGER_PROVIDERS} from "./core/logger/logger";
 
 @Component({
 	selector: "app-heroes",
