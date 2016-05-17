@@ -1,5 +1,5 @@
 import {Component, OnInit} from "@angular/core";
-import {ROUTER_DIRECTIVES} from "@angular/router-deprecated";
+import {ROUTER_DIRECTIVES} from "@angular/router";
 import consts from "../../app.const";
 import {Hero} from "./hero.model";
 import {HeroService} from "./hero.service";

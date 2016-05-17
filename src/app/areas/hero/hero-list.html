@@ -4,7 +4,7 @@
 
 <div class="hero-list">
 	<div class="hero-container" *ngFor="let hero of heroes">
-		<a [routerLink]="['HeroDetail', {hero: hero.key}]">
+		<a [routerLink]="['/hero', hero.key]">
 			<img src="/dist/assets/imgs/heroes/{{hero.key}}.jpg" alt="{{hero.title}}" class="img-thumbnail">
 
 			<h4 class="hero-name">{{ hero.title }}</h4> 

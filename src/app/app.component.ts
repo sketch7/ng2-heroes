@@ -1,7 +1,7 @@
 // import "bootstrap/css/bootstrap.css!";
 import "rxjs/Rx";
 import {Component, OnInit, provide} from "@angular/core";
-import {RouteConfig, ROUTER_DIRECTIVES} from "@angular/router-deprecated";
+import {Routes, ROUTER_DIRECTIVES} from "@angular/router";
 import {HTTP_PROVIDERS, XHRBackend} from "@angular/http";
 import {InMemoryBackendService, SEED_DATA, InMemoryBackendConfig} from "angular2-in-memory-web-api/core";
 import {LOGGER_PROVIDERS} from "ssv-ng2-core";
@@ -33,10 +33,10 @@ import {MockAppData} from "./app.mock-data";
 		LOGGER_PROVIDERS
 	],
 })
-@RouteConfig([
-	{ path: "/", name: "Home", component: HomeComponent, useAsDefault: true },
-	{ path: "/heroes", name: "Heroes", component: HeroListComponent },
-	{ path: "/heroes/:hero", name: "HeroDetail", component: HeroDetailComponent },
+@Routes([
+	{ path: "/", component: HomeComponent }, // useAsDefault: true
+	{ path: "/heroes", component: HeroListComponent },
+	{ path: "/hero/:hero", component: HeroDetailComponent },
 ])
 export class AppComponent implements OnInit {
 
