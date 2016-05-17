@@ -7,7 +7,5 @@
     "lodash": "registry:dt/lodash#3.10.0+20160330154726",
     "node": "registry:dt/node#4.0.0+20160509154515"
   },
-  "dependencies": {
-    "ssv-ng2-core": "npm:ssv-ng2-core"
-  }
+  "dependencies": {}
 }
