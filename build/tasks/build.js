@@ -24,7 +24,7 @@ gulp.task("rebuild", (cb) => {
 // scripts
 gulp.task("compile:ts", () => {
 	var tsProject = getTscProject();
-	var tsResult = gulp.src([paths.src.tsd, paths.src.ts])
+	var tsResult = gulp.src([paths.src.typings, paths.src.ts])
 		.pipe(plumber())
 	//.pipe(changed(paths.output.dist, { extension: ".js" }))
 		.pipe(sourcemaps.init())

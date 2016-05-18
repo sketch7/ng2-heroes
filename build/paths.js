@@ -4,7 +4,7 @@ var fs = require("fs");
 const pkg = JSON.parse(fs.readFileSync('./package.json', 'utf-8'));
 const srcRoot = "src";
 const outRoot = "wwwroot";
-const tsdMainFile = "typings/browser.d.ts";
+const typings = "typings/index.d.ts";
 
 module.exports = {
 	output: {
@@ -13,7 +13,7 @@ module.exports = {
 	},
 	src: {
 		root: srcRoot,
-		tsd: tsdMainFile,
+		typings: typings,
 		ts: `./${srcRoot}/**/*.ts`,
 		html: `./${srcRoot}/app/**/*.html`,
 		sass: [`./${srcRoot}/app/**/*.scss`, `./${srcRoot}/assets/styles/**/*.scss`],
