@@ -5,3 +5,8 @@ export interface Hero {
 	description: string;
 	role: string;
 }
+
+export interface HeroState {
+	isBusy: boolean;
+	heroes: Hero[];
+}
