@@ -1,7 +1,8 @@
-import {Component} from "@angular/core";
-import {OnActivate, RouteSegment, RouteTree, ROUTER_DIRECTIVES} from "@angular/router";
+import {Component, OnInit, OnDestroy} from "@angular/core";
+import {Router, ActivatedRoute, ROUTER_DIRECTIVES} from "@angular/router";
 import {Store} from "@ngrx/store";
-import {Observable} from "rxjs/Observable";
+import {Observable, Subscription} from "rxjs/Rx";
+import {LoggerFactory, ILog} from "ssv-ng2-core";
 
 import {AppState} from "../../app.state";
 import {HeroDetailComponent} from "../../components/components";
@@ -17,20 +18,34 @@ import {HeroSelector} from "./hero.selector";
 		HeroDetailComponent
 	]
 })
-export class HeroDetailContainer implements OnActivate {
+export class HeroDetailContainer implements OnInit, OnDestroy {
 
 	hero$: Observable<Hero>;
-	private key: string;
+
+	private routeSubscription: Subscription;
+	private logger: ILog;
 
 	constructor(
+		loggerFactory: LoggerFactory,
 		private store: Store<AppState>,
 		private action: HeroAction,
-		private selector: HeroSelector
+		private selector: HeroSelector,
+		private route: ActivatedRoute,
+		private router: Router
 	) {
+		this.logger = loggerFactory.getInstance("heroDetailContainer");
+		this.logger.debug("ctor");
 	}
 
-	routerOnActivate(curr: RouteSegment, prev?: RouteSegment, currTree?: RouteTree, prevTree?: RouteTree): void {
-		this.key = curr.getParam("hero");
-		this.hero$ = this.store.select<Hero>(this.selector.getByKey(this.key));
+	ngOnInit(): void {
+		this.routeSubscription = this.route.params.subscribe(params => {
+			let key = params[`hero`];
+			this.hero$ = this.store.select<Hero>(this.selector.getByKey(key));
+			this.logger.debug("ngOnInit", "route changed!", key);
+		});
+	}
+
+	ngOnDestroy(): void {
+		this.routeSubscription.unsubscribe();
 	}
 }

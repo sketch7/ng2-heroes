@@ -1,7 +1,7 @@
 import "rxjs/Rx";
 import {provide} from "@angular/core";
 import {bootstrap} from "@angular/platform-browser-dynamic";
-import {ROUTER_PROVIDERS} from "@angular/router";
+import {provideRouter} from "@angular/router";
 import {HTTP_PROVIDERS, XHRBackend} from "@angular/http";
 import {provideStore, combineReducers} from "@ngrx/store";
 import {runEffects} from "@ngrx/effects";
@@ -16,11 +16,12 @@ import {
 	MockAppData,
 	HERO_PROVIDERS,
 	HeroEffect,
-	UserInfoService
+	UserInfoService,
+	APP_ROUTER_PROVIDERS
 } from "./app/app";
 
 bootstrap(AppComponent, [
-	ROUTER_PROVIDERS,
+	APP_ROUTER_PROVIDERS,
 	provideStore(
 		compose(
 			storeLogger(),
@@ -36,4 +37,4 @@ bootstrap(AppComponent, [
 	provide(XHRBackend, { useClass: InMemoryBackendService }),
 	provide(SEED_DATA, { useClass: MockAppData }),
 	provide(InMemoryBackendConfig, { useValue: { delay: 120 } }),
-]);
+]).catch(err => console.error(err));

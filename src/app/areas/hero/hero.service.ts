@@ -20,6 +20,7 @@ export class HeroService {
 	}
 
 	getAll(): Observable<Hero[]> {
+		this.logger.debug("getAll");
 		return this.heroClient.getAll();
 	}
 

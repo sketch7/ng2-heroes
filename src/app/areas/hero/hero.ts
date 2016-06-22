@@ -10,6 +10,7 @@ export * from "./hero.reducer";
 export * from "./hero.action";
 export * from "./hero.effect";
 
+export * from "./hero-layout.container";
 export * from "./hero-detail.container";
 export * from "./hero-list.container";
 
