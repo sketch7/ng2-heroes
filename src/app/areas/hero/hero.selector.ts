@@ -1,5 +1,5 @@
-import {Injectable} from "@angular/core";
 import * as _ from "lodash";
+import {Injectable} from "@angular/core";
 
 import {AppState} from "../../app.state";
 import {Hero} from "./hero.model";
