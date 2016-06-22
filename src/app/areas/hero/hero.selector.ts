@@ -2,16 +2,17 @@ import {Injectable} from "@angular/core";
 import * as _ from "lodash";
 
 import {AppState} from "../../app.state";
+import {Hero} from "./hero.model";
 
 @Injectable()
 export class HeroSelector {
 
 	getAll() {
-		return ($state: AppState) => $state.hero.heroes;
+		return ($state: AppState): Hero[] => $state.hero.heroes;
 	}
 
 	getByKey(key: string) {
-		return ($state: AppState) => _.find(this.getAll()($state), { key: key });
+		return ($state: AppState): Hero => _.find(this.getAll()($state), { key: key });
 	}
 
 }
