@@ -15,7 +15,7 @@ export class HeroService {
 		private heroClient: HeroClient,
 		private loggerFactory: LoggerFactory
 	) {
-		this.logger = loggerFactory.getInstance("heroService");
+		this.logger = loggerFactory.get("heroService");
 		this.logger.debug("ctor");
 	}
 

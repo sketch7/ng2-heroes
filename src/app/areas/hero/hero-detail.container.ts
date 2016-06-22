@@ -33,7 +33,7 @@ export class HeroDetailContainer implements OnInit, OnDestroy {
 		private route: ActivatedRoute,
 		private router: Router
 	) {
-		this.logger = loggerFactory.getInstance("heroDetailContainer");
+		this.logger = loggerFactory.get("heroDetailContainer");
 		this.logger.debug("ctor");
 	}
 
