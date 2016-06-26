@@ -48,7 +48,7 @@
 			defaultExtension: "js"
 		},
 		"ssv-ng2-core": {
-			main: "_artifact/amd/index.js",
+			main: "dist/amd/index.js",
 			defaultExtension: "js"
 		}
 	};

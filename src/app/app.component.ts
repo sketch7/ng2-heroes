@@ -12,8 +12,9 @@ import {
 } from "./areas/areas";
 
 @Component({
+	moduleId: module.id,
 	selector: "app-heroes",
-	templateUrl: `${consts.basePath}/app.html`,
+	templateUrl: "app.html",
 	directives: [
 		ROUTER_DIRECTIVES
 	]
