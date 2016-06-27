@@ -14,7 +14,6 @@
 	// map tells the System loader where to look for things
 	var map = {
 		"app": "app",
-		"test": "test",
 		"rxjs": "n:rxjs",
 		"@angular": "n:@angular",
 		"@ngrx": "n:@ngrx",
@@ -27,46 +26,32 @@
 
 	// packages tells the System loader how to load when no filename and/or no extension
 	var packages = {
-		"app": {
-			defaultExtension: "js"
-		},
-		"test": {
-			defaultExtension: "js"
-		},
-		"rxjs": {
-			defaultExtension: "js"
-		},
-		"ngrx-store-logger": {
-			main: "dist/index.js",
-			defaultExtension: "js"
-		},
-		"angular2-in-memory-web-api": {
-			defaultExtension: "js"
-		},
-		"ssv-core": {
-			main: "dist/amd/index.js",
-			defaultExtension: "js"
-		},
-		"ssv-ng2-core": {
-			main: "dist/amd/index.js",
-			defaultExtension: "js"
-		}
+		"app": { defaultExtension: "js" },
+		"rxjs": { defaultExtension: "js" },
+		"ngrx-store-logger": { main: "dist/index.js", defaultExtension: "js" },
+		"angular2-in-memory-web-api": { defaultExtension: "js" },
+		"ssv-core": { main: "dist/amd/index.js" },
+		"ssv-ng2-core": { main: "dist/amd/index.js" }
 	};
 
 	var packageNames = [
-		"@angular/common",
-		"@angular/compiler",
-		"@angular/core",
-		"@angular/http",
-		"@angular/platform-browser",
-		"@angular/platform-browser-dynamic",
-		"@angular/router",
-		"@angular/router-deprecated",
-		"@angular/testing",
 		"@ngrx/core",
 		"@ngrx/store",
 		"@ngrx/effects",
 		"lodash"
+	];
+
+	var ngPackageNames = [
+		"common",
+		"compiler",
+		"core",
+		"forms",
+		"http",
+		"platform-browser",
+		"platform-browser-dynamic",
+		"router",
+		"router-deprecated",
+		"upgrade",
 	];
 
 	// add package entries for angular packages in the form "@angular/common": { main: "index.js", defaultExtension: "js" }
@@ -74,14 +59,25 @@
 		packages[pkgName] = { main: "index.js", defaultExtension: "js" };
 	});
 
+
+	// @angular Individual files (~300 requests):
+	function packIndex(pkgName) {
+		packages["@angular/" + pkgName] = { main: "index.js", defaultExtension: "js" };
+	}
+	// @angular Bundled (~40 requests):
+	function packUmd(pkgName) {
+		packages["@angular/" + pkgName] = { main: "/bundles/" + pkgName + ".umd.js", defaultExtension: "js" };
+	}
+	// Most environments should use UMD; some (Karma) need the individual index files
+	var setPackageConfig = System.packageWithIndex ? packIndex : packUmd;
+	// Add package entries for angular packages
+	ngPackageNames.forEach(setPackageConfig);
+
 	var config = {
 		map: map,
 		packages: packages,
 		paths: paths
 	};
-
-	// filterSystemConfig - index.html"s chance to modify config before we register it.
-	if (global.filterSystemConfig) { global.filterSystemConfig(config); }
 
 	System.config(config);
 
