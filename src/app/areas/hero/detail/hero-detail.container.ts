@@ -4,11 +4,11 @@ import {Store} from "@ngrx/store";
 import {Observable, Subscription} from "rxjs/Rx";
 import {LoggerFactory, ILog} from "ssv-ng2-core";
 
-import {AppState} from "../../app.state";
-import {HeroDetailComponent} from "../../components/components";
-import {Hero} from "./hero.model";
-import {HeroAction} from "./hero.action";
-import {HeroSelector} from "./hero.selector";
+import {AppState} from "../../../app.state";
+import {HeroDetailComponent} from "../../../components/components";
+import {Hero} from "../hero.model";
+import {HeroAction} from "../hero.action";
+import {HeroSelector} from "../hero.selector";
 
 @Component({
 	moduleId: module.id,

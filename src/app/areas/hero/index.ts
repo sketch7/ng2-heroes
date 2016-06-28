@@ -10,9 +10,9 @@ export * from "./hero.reducer";
 export * from "./hero.action";
 export * from "./hero.effect";
 
-export * from "./hero-layout.container";
-export * from "./hero-detail.container";
-export * from "./hero-list.container";
+export * from "./layout/hero-layout.container";
+export * from "./detail/hero-detail.container";
+export * from "./list/hero-list.container";
 
 export * from "./hero.mock-data";
 
