@@ -12,6 +12,7 @@ import {HeroSelector} from "./hero.selector";
 
 @Component({
 	moduleId: module.id,
+	selector: "app-hero-detail-container",
 	templateUrl: "hero-detail.container.html",
 	directives: [
 		ROUTER_DIRECTIVES,

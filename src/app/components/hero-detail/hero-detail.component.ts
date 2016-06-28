@@ -1,7 +1,7 @@
 import {Component, Input} from "@angular/core";
 import {ROUTER_DIRECTIVES} from "@angular/router";
 
-import {Hero} from "../../app";
+import {Hero} from "../../index";
 
 @Component({
 	moduleId: module.id,

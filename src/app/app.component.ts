@@ -1,5 +1,3 @@
-// import "bootstrap/css/bootstrap.css!";
-
 import {Component, OnInit} from "@angular/core";
 import {ROUTER_DIRECTIVES} from "@angular/router";
 import {Store} from "@ngrx/store";
@@ -9,7 +7,7 @@ import {AppState} from "./app.state";
 import {
 	HeroAction,
 	UserInfoService,
-} from "./areas/areas";
+} from "./areas/index";
 
 @Component({
 	moduleId: module.id,

@@ -1,4 +1,4 @@
-import {HeroState} from "./areas/hero/hero";
+import {HeroState} from "./areas/index";
 
 export interface AppState {
 	hero: HeroState;

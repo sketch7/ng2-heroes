@@ -1,2 +1,2 @@
-export * from "./hero-detail/hero-detail";
-export * from "./hero-list/hero-list";
+export * from "./hero-detail/index";
+export * from "./hero-list/index";

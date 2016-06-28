@@ -1,11 +1,11 @@
 import {provideRouter, RouterConfig} from "@angular/router";
 
 import {
-	HomeComponent,
+	HomeContainer,
 	HeroLayoutContainer,
 	HeroDetailContainer,
 	HeroListContainer,
-} from "./areas/areas";
+} from "./areas/index";
 
 const heroRoutes: RouterConfig = [
 	{
@@ -19,7 +19,7 @@ const heroRoutes: RouterConfig = [
 ];
 
 const routes: RouterConfig = [
-	{ path: "", component: HomeComponent },
+	{ path: "", component: HomeContainer },
 	...heroRoutes
 ];
 

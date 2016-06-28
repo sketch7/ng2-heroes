@@ -1,7 +1,6 @@
 import "rxjs/Rx";
 import {provide} from "@angular/core";
 import {bootstrap} from "@angular/platform-browser-dynamic";
-import {provideRouter} from "@angular/router";
 import {HTTP_PROVIDERS, XHRBackend} from "@angular/http";
 import {provideStore, combineReducers} from "@ngrx/store";
 import {runEffects} from "@ngrx/effects";
@@ -18,7 +17,7 @@ import {
 	HeroEffect,
 	UserInfoService,
 	APP_ROUTER_PROVIDERS
-} from "./app/app";
+} from "./app/index";
 
 bootstrap(AppComponent, [
 	APP_ROUTER_PROVIDERS,
