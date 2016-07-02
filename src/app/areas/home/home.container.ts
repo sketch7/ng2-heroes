@@ -4,7 +4,7 @@ import consts from "../../app.const";
 @Component({
 	moduleId: module.id,
 	selector: "app-home-container",
-	templateUrl: "home.html"
+	templateUrl: "home.container.html"
 })
 export class HomeContainer {
 	title = consts.name;
