@@ -2,11 +2,10 @@ import {Component, OnInit} from "@angular/core";
 import {ROUTER_DIRECTIVES} from "@angular/router";
 import {Store} from "@ngrx/store";
 
-import consts from "./app.const";
 import {AppState} from "./app.state";
 import {
 	HeroAction,
-	UserAreaContainer
+	NavContainer
 } from "./areas/index";
 
 @Component({
@@ -15,13 +14,10 @@ import {
 	templateUrl: "app.html",
 	directives: [
 		ROUTER_DIRECTIVES,
-		UserAreaContainer
+		NavContainer
 	]
 })
 export class AppComponent implements OnInit {
-
-	appTitle = consts.name;
-	appVersion = consts.version;
 
 	constructor(
 		private store: Store<AppState>,
