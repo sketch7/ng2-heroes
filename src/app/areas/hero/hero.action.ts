@@ -8,6 +8,8 @@ export const heroAction = {
 	fetchAll: `${ACTION_PREFIX} fetch all`,
 	fetchAllSuccess: `${ACTION_PREFIX} fetch all success`,
 	fetchAllFail: `${ACTION_PREFIX} fetch all fail`,
+
+	filter: `${ACTION_PREFIX} filter`,
 };
 
 @Injectable()
@@ -29,6 +31,13 @@ export class HeroAction {
 	fetchAllFail(): Action {
 		return {
 			type: heroAction.fetchAllFail
+		};
+	}
+
+	filter(term: string): Action {
+		return {
+			type: heroAction.filter,
+			payload: term
 		};
 	}
 }

@@ -1,0 +1,10 @@
+<div class="form-group">
+	<input type="text"
+		class="form-control"
+		(keyup)="keyup$.next($event)"
+		[value]="searchTerm"
+		autocomplete="off"
+		spellcheck="false"
+		autocorrect="off"
+		placeholder="search heroes..." />
+</div>

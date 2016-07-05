@@ -1,2 +1,4 @@
+<app-hero-search [searchTerm]="searchTerm$ | async"
+	(search)="onFilter($event)"></app-hero-search>
 <app-hero-list [heroes]="heroes$ | async">
 </app-hero-list>

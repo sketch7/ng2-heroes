@@ -5,8 +5,10 @@ import {Observable} from "rxjs/Observable";
 
 import {AppState} from "../../../app.state";
 import {HeroListComponent} from "../../../components/index";
+import {HeroSearchComponent} from "../search/index";
 import {Hero} from "../hero.model";
 import {HeroSelector} from "../hero.selector";
+import {HeroAction} from "../hero.action";
 
 @Component({
 	moduleId: module.id,
@@ -14,22 +16,29 @@ import {HeroSelector} from "../hero.selector";
 	templateUrl: "hero-list.container.html",
 	directives: [
 		ROUTER_DIRECTIVES,
-		HeroListComponent
+		HeroListComponent,
+		HeroSearchComponent
 	]
 })
 export class HeroListContainer implements OnInit {
 
+	searchTerm$: Observable<string>;
 	heroes$: Observable<Hero[]>;
 
 	constructor(
 		private store: Store<AppState>,
+		private action: HeroAction,
 		private selector: HeroSelector
 	) {
 
 	}
 
 	ngOnInit() {
-		this.heroes$ = this.store.select<Hero[]>(this.selector.getAll());
+		this.heroes$ = this.selector.getAllWithFilter(this.store);
+		this.searchTerm$ = this.store.select(this.selector.getFilter());
 	}
 
+	onFilter(term: string) {
+		this.store.dispatch(this.action.filter(term));
+	}
 }

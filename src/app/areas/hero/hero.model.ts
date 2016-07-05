@@ -9,4 +9,5 @@ export interface Hero {
 export interface HeroState {
 	isBusy: boolean;
 	heroes: Hero[];
+	filterTerm?: string;
 }
