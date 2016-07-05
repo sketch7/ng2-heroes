@@ -1,0 +1,11 @@
+app-hero-layout-container {
+	display: flex;
+	> {
+		section {
+			width: 220px;
+		}
+		main {
+			flex: 1;
+		}
+	}
+}

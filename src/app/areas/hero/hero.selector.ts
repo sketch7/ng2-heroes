@@ -11,6 +11,10 @@ export class HeroSelector {
 		return ($state: AppState): Hero[] => $state.hero.heroes;
 	}
 
+	getAllTop(count: number) {
+		return ($state: AppState): Hero[] => _.take(this.getAll()($state), count);
+	}
+
 	getByKey(key: string) {
 		return ($state: AppState): Hero => _.find(this.getAll()($state), { key: key });
 	}

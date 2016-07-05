@@ -19,7 +19,6 @@ import {HeroSelector} from "../hero.selector";
 })
 export class HeroListContainer implements OnInit {
 
-	title = "Heroes";
 	heroes$: Observable<Hero[]>;
 
 	constructor(

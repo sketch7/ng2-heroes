@@ -33,6 +33,7 @@ $splash-loader-color: $primary-light-color !default;
 // navbar
 $navbar-text-color: $white !default;
 $navbar-bg-color: $primary-bg-color !default;
+$navbar-active-text-color: $white !default;
 $navbar-active-bg-color: $primary-color !default;
 $navbar-active-bg-hover-color: lighten($navbar-active-bg-color, 10%) !default;
 $navbar-brand-bg-hover-color: transparent !default;

@@ -1,4 +1,5 @@
-<div *ngIf="hero">
+<div *ngIf="hero"
+	class="clearfix">
 	<div class="page-header">
 		<h1>
 			<a [routerLink]="['/heroes']">
@@ -9,20 +10,15 @@
 		</h1>
 	</div>
 	<div class="pull-left">
-		<img src="/dist/assets/imgs/heroes/{{hero.key}}.jpg" alt="{{hero.title}}" class="img-thumbnail">
+		<img src="/dist/assets/imgs/heroes/{{hero.key}}.jpg"
+			alt="{{hero.title}}"
+			class="img-thumbnail">
 		<div>
-			<span class="hero-role badge">{{ hero.role }}</span>
+			<span class="hero-role badge">{{hero.role}}</span>
 		</div>
 	</div>
-	<div class="container">
-		<div class="row">
-			<div class="col-xs-8">
-				<p class="lead">{{hero.description}}</p>
-				<a [routerLink]="['/heroes']">Back</a>
-			</div>
-
-		</div>
-
+	<div class="hero-content">
+		<p class="lead">{{hero.description}}</p>
+		<a [routerLink]="['/heroes']">Back</a>
 	</div>
-
 </div>

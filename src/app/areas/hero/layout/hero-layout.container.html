@@ -1,2 +1,9 @@
-<!-- hero-layout -->
-<router-outlet></router-outlet>
+<main>
+	<router-outlet></router-outlet>
+</main>
+<section class="top-heroes">
+	<h3>Top Heroes</h3>
+	<app-hero-list [heroes]="topHeroes$ | async"
+		hideThumbnail="true">
+	</app-hero-list>
+</section>

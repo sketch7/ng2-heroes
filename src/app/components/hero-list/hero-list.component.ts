@@ -14,5 +14,5 @@ import {Hero} from "../../index";
 export class HeroListComponent {
 
 	@Input() heroes: Hero[];
-
+	@Input() hideThumbnail: boolean;
 }

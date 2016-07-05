@@ -1,4 +1,5 @@
 @import "variables";
+@import "layout/hero-layout";
 .hero {
 	&-list {
 		display: flex;
@@ -11,7 +12,9 @@
 			text-decoration: none;
 		}
 		&:hover {
-			transform: translateY(-5px);
+			.hero-inner-container {
+				transform: translateY(-5px);
+			}
 			.img-thumbnail {
 				background: $primary-lighter-color;
 			}
@@ -34,4 +37,9 @@
 		font-size: 0.75em;
 		background: $primary-color;
 	}
+}
+
+app-hero-detail,
+app-hero-detail-container {
+	display: block;
 }
