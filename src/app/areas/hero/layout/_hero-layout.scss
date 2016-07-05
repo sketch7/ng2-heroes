@@ -3,9 +3,11 @@ app-hero-layout-container {
 	> {
 		section {
 			width: 220px;
+			order: 2;
 		}
 		main {
 			flex: 1;
+			order: 1;
 		}
 	}
 }
