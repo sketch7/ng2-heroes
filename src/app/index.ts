@@ -5,4 +5,4 @@ export * from "./app.mock-data";
 export * from "./app.route";
 
 export * from "./areas/index";
-export * from "./components/components";
+export * from "./components/index";

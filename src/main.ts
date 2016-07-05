@@ -13,9 +13,10 @@ import {
 	AppComponent,
 	appReducer,
 	MockAppData,
+	USER_PROVIDERS,
+	NOTIFICATION_PROVIDERS,
 	HERO_PROVIDERS,
 	HeroEffect,
-	UserInfoService,
 	APP_ROUTER_PROVIDERS
 } from "./app/index";
 
@@ -30,8 +31,9 @@ bootstrap(AppComponent, [
 	runEffects([HeroEffect]),
 	HTTP_PROVIDERS,
 	LOGGER_PROVIDERS,
+	USER_PROVIDERS,
+	NOTIFICATION_PROVIDERS,
 	HERO_PROVIDERS,
-	UserInfoService,
 	// in memory web api providers
 	provide(XHRBackend, { useClass: InMemoryBackendService }),
 	provide(SEED_DATA, { useClass: MockAppData }),

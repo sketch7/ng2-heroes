@@ -1,15 +1,14 @@
-<div *ngIf="hero"
-	class="clearfix">
+<div *ngIf="hero">
 	<div class="page-header">
 		<h1>
 			<a [routerLink]="['/heroes']">
-				<i class="glyphicon glyphicon-chevron-left"></i>
+				<i class="glyphicon glyphicon-chevron-left"></i> {{hero.title}}
+				<small>{{hero.caption}}</small>
 			</a>
-			{{hero.title}}
-			<small>{{hero.caption}}</small>
+
 		</h1>
 	</div>
-	<div class="pull-left">
+	<div>
 		<img src="/dist/assets/imgs/heroes/{{hero.key}}.jpg"
 			alt="{{hero.title}}"
 			class="img-thumbnail">

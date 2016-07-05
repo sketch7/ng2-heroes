@@ -4,7 +4,7 @@ import {Store} from "@ngrx/store";
 import {Observable} from "rxjs/Observable";
 
 import {AppState} from "../../../app.state";
-import {HeroListComponent} from "../../../components/components";
+import {HeroListComponent} from "../../../components/index";
 import {Hero} from "../hero.model";
 import {HeroSelector} from "../hero.selector";
 

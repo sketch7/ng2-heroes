@@ -1,0 +1,23 @@
+app-hero-detail {
+	> {
+		div {
+			display: flex;
+			flex-flow: row wrap;
+		}
+	}
+	.page-header {
+		flex: 1 100%;
+		i {
+			top: 4px;
+		}
+		a {
+			&:hover {
+				text-decoration: none;
+			}
+		}
+	}
+	.hero-content {
+		flex: 1;
+		padding: 0.5em;
+	}
+}

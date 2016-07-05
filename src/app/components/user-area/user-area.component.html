@@ -1,0 +1,15 @@
+<ul class="nav navbar-nav navbar-right">
+	<li ng-show="alias"
+		class="user-profile">
+		<a>
+			<img class="img-circle"
+				width="30"
+				src="https://avatars3.githubusercontent.com/u/3908723?v=3&s=30"
+				alt="user profile">
+			<span class="hidden-xs">{{alias}}</span>
+		</a>
+	</li>
+	<li>
+		<a><i class="glyphicon glyphicon-bell"></i> <span class="badge">{{unreadNotificationsCount > 9 ? "+9" : unreadNotificationsCount}}</span></a>
+	</li>
+</ul>

@@ -1,35 +1,33 @@
 <nav class="navbar navbar-fixed-top">
 	<div class="container">
 		<div class="navbar-header">
-			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+			<button type="button"
+				class="navbar-toggle collapsed"
+				data-toggle="collapse"
+				data-target="#navbar"
+				aria-expanded="false"
 				aria-controls="navbar">
 				<span class="sr-only">Toggle navigation</span>
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand" [routerLink]="['/']">{{appTitle}} <small>{{appVersion}}</small></a>
+			<a class="navbar-brand"
+				[routerLink]="['/']">{{appTitle}} <small>{{appVersion}}</small></a>
 		</div>
-		<div id="navbar" class="collapse navbar-collapse">
+		<div id="navbar"
+			class="collapse navbar-collapse">
 			<ul class="nav navbar-nav">
 				<li [routerLinkActive]="'active'">
 					<a [routerLink]="['/']">Home</a>
 				</li>
-				<li [routerLinkActive]="'active'" [routerLinkActiveOptions]="{exact: false}">
+				<li [routerLinkActive]="'active'"
+					[routerLinkActiveOptions]="{exact: false}">
 					<a [routerLink]="['/heroes']">Heroes</a>
 				</li>
 			</ul>
-			<ul class="nav navbar-nav navbar-right">
-				<li ng-show="user" class="user-profile">
-					<a href="#">
-						<img class="img-circle" width="30" src="https://avatars3.githubusercontent.com/u/3908723?v=3&s=30" alt="user profile">
-						<span class="hidden-xs">{{user}}</span>
-					</a>
-				</li>
-				<li>
-					<a href="#">Notifications <span class="badge">{{unreadNotificationsCount > 9 ? "+9" : unreadNotificationsCount}}</span></a>
-				</li>
-			</ul>
+			<app-user-area-container>
+			</app-user-area-container>
 		</div>
 	</div>
 </nav>

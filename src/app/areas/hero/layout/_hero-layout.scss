@@ -9,3 +9,10 @@ app-hero-layout-container {
 		}
 	}
 }
+
+.top-heroes {
+	h3 {
+		border-bottom: 4px solid $primary-color;
+		border-right: 12px solid transparent;
+	}
+}

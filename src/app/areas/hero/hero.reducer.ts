@@ -3,7 +3,7 @@ import {Action} from "@ngrx/store";
 import {heroAction} from "./hero.action";
 import {HeroState, Hero} from "./hero.model";
 
-export const initialState: HeroState = {
+const initialState: HeroState = {
 	isBusy: false,
 	heroes: []
 };
