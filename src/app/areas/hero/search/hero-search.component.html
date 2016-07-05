@@ -1,10 +1,15 @@
 <div class="form-group">
-	<input type="text"
-		class="form-control"
-		(keyup)="keyup$.next($event)"
-		[value]="searchTerm"
-		autocomplete="off"
-		spellcheck="false"
-		autocorrect="off"
-		placeholder="search heroes..." />
+	<div class="input-group">
+		<span class="input-group-addon">
+			<i class="glyphicon glyphicon-search"></i> 
+			</span>
+		<input type="text"
+			class="form-control"
+			(keyup)="keyup$.next($event)"
+			[value]="searchTerm"
+			autocomplete="off"
+			spellcheck="false"
+			autocorrect="off"
+			placeholder="search heroes..." />
+	</div>
 </div>

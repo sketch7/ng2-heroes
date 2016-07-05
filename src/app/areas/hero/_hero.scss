@@ -1,5 +1,6 @@
 @import "variables";
 @import "layout/hero-layout";
+@import "search/hero-search";
 .hero {
 	&-list {
 		display: flex;
@@ -40,7 +41,6 @@
 }
 
 app-hero-list,
-app-hero-detail-container,
-app-hero-search {
+app-hero-detail-container {
 	display: block;
 }
