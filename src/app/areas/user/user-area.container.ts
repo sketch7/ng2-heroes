@@ -1,11 +1,12 @@
-import {Component, OnInit} from "@angular/core";
+import {Component, OnInit, OnDestroy} from "@angular/core";
 import {ROUTER_DIRECTIVES} from "@angular/router";
 import {Observable} from "rxjs/Observable";
 import {Store} from "@ngrx/store";
+import {utils} from "ssv-core";
 
 import {AppState} from "../../app.state";
 import {UserAreaComponent}  from "../../components/index";
-import {NotificationSelector} from "../notification/notification.selector";
+import {NotificationSelector, NotificationAction} from "../notification/index";
 import {UserSelector} from "./user.selector";
 import {UserState} from "./user.model";
 
@@ -18,15 +19,18 @@ import {UserState} from "./user.model";
 		UserAreaComponent
 	]
 })
-export class UserAreaContainer implements OnInit {
+export class UserAreaContainer implements OnInit, OnDestroy {
 
 	user$: Observable<UserState>;
 	unreadNotificationCount$: Observable<number>;
+	private addNotificationIntervalToken: number;
+	private nextNotificationIdSeed = 4;
 
 	constructor(
 		private store: Store<AppState>,
 		private userSelector: UserSelector,
-		private notificationSelector: NotificationSelector
+		private notificationSelector: NotificationSelector,
+		private notificationAction: NotificationAction
 	) {
 
 	}
@@ -34,5 +38,20 @@ export class UserAreaContainer implements OnInit {
 	ngOnInit() {
 		this.user$ = this.store.select(this.userSelector.get());
 		this.unreadNotificationCount$ = this.store.select(this.notificationSelector.getUnreadCount());
+
+		this.addNotificationIntervalToken = setInterval(() => {
+			this.store.dispatch(this.notificationAction.add({
+				id: this.nextNotificationIdSeed,
+				isRead: false,
+				title: "New message!"
+			}));
+			this.nextNotificationIdSeed++;
+		}, utils.conversion.fromSecondsToMilliseconds(6));
 	}
+
+	ngOnDestroy() {
+		clearTimeout(this.addNotificationIntervalToken);
+		this.addNotificationIntervalToken = null;
+	}
+
 }

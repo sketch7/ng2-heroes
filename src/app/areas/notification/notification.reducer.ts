@@ -14,10 +14,9 @@ const initialState: NotificationState = {
 export function notificationReducer(state: NotificationState = initialState, action: Action): NotificationState {
 	switch (action.type) {
 		case notificationAction.add:
-			return Object.assign({}, state, [
-				...state.items,
-				action.payload
-			]);
+			return Object.assign({}, state, {
+				items: [...state.items, action.payload]
+			});
 		case notificationAction.remove:
 			return Object.assign({}, state,
 				state.items.filter(x => x.id !== action.payload as number)
