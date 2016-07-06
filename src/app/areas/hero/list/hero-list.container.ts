@@ -5,7 +5,7 @@ import {Observable} from "rxjs/Observable";
 
 import {AppState} from "../../../app.state";
 import {HeroListComponent} from "../../../components/index";
-import {HeroSearchComponent} from "../search/index";
+import {HeroFilterComponent} from "../filter/index";
 import {Hero} from "../hero.model";
 import {HeroSelector} from "../hero.selector";
 import {HeroAction} from "../hero.action";
@@ -17,7 +17,7 @@ import {HeroAction} from "../hero.action";
 	directives: [
 		ROUTER_DIRECTIVES,
 		HeroListComponent,
-		HeroSearchComponent
+		HeroFilterComponent
 	]
 })
 export class HeroListContainer implements OnInit {

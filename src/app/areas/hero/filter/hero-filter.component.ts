@@ -4,12 +4,12 @@ import {Subject} from "rxjs/Subject";
 
 @Component({
 	moduleId: module.id,
-	selector: "app-hero-search",
-	templateUrl: "hero-search.component.html",
+	selector: "app-hero-filter",
+	templateUrl: "hero-filter.component.html",
 	directives: [
 	]
 })
-export class HeroSearchComponent {
+export class HeroFilterComponent {
 
 	keyup$ = new Subject<KeyboardEvent>();
 

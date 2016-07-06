@@ -13,7 +13,7 @@ export * from "./hero.effect";
 export * from "./layout/hero-layout.container";
 export * from "./detail/hero-detail.container";
 export * from "./list/hero-list.container";
-export * from "./search/hero-search.component";
+export * from "./filter/hero-filter.component";
 
 export * from "./hero.mock-data";
 
