@@ -1,0 +1,12 @@
+{
+  "resolution": "main",
+  "tree": {
+    "src": "https://raw.githubusercontent.com/kurtaqui/npm-fuse.js/bebde2685481a180ded61671aed024f7f6bb3cfe/typings.json",
+    "raw": "registry:npm/fuse#0.1.0+20160630205713",
+    "main": "fuse.js.d.ts",
+    "version": "0.1.0",
+    "global": false,
+    "name": "fuse.js",
+    "type": "typings"
+  }
+}

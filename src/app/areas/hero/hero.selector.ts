@@ -2,6 +2,7 @@ import * as _ from "lodash";
 import {Injectable} from "@angular/core";
 import {Store} from "@ngrx/store";
 import {Observable} from "rxjs/Observable";
+import * as Fuse from "fuse";
 
 import {AppState} from "../../app.state";
 import {Hero} from "./hero.model";
@@ -25,7 +26,18 @@ export class HeroSelector {
 				if (!filter) {
 					return heroes;
 				}
-				return heroes.filter(x => x.title === filter);
+				const fuse = new Fuse(heroes, {
+					keys: [
+						{
+							name: "title",
+							weight: 0.8,
+						}, {
+							name: "caption",
+							weight: 0.2
+						}
+					]
+				});
+				return fuse.search<Hero>(filter);
 			}
 		);
 	}

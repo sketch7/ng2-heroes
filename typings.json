@@ -6,6 +6,7 @@
     "jasmine": "registry:dt/jasmine#2.2.0+20160505161446"
   },
   "dependencies": {
+    "fuse": "registry:npm/fuse#0.1.0+20160630205713",
     "lodash": "registry:npm/lodash#4.0.0+20160416211519"
   }
 }

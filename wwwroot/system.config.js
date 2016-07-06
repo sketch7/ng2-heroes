@@ -21,7 +21,8 @@
 		"angular2-in-memory-web-api": "n:angular2-in-memory-web-api",
 		"ssv-core": "n:ssv-core",
 		"ssv-ng2-core": "n:ssv-ng2-core",
-		"lodash": "n:lodash"
+		"lodash": "n:lodash",
+		"fuse": "n:fuse.js/src"
 	};
 
 	// packages tells the System loader how to load when no filename and/or no extension
@@ -31,7 +32,8 @@
 		"ngrx-store-logger": { main: "dist/index.js", defaultExtension: "js" },
 		"angular2-in-memory-web-api": { defaultExtension: "js" },
 		"ssv-core": { main: "dist/amd/index.js" },
-		"ssv-ng2-core": { main: "dist/amd/index.js" }
+		"ssv-ng2-core": { main: "dist/amd/index.js" },
+		"fuse": { main: "fuse.js" }
 	};
 
 	var packageNames = [
