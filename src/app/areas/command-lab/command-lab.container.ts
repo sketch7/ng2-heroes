@@ -1,6 +1,9 @@
+import {Subject, Observable} from "rxjs/Rx";
 import {Component} from "@angular/core";
 import {utils} from "ssv-core";
 import {LoggerFactory, ILog} from "ssv-ng2-core";
+
+import {ICommand, Command} from "./command";
 
 @Component({
 	moduleId: module.id,
@@ -33,4 +36,21 @@ export class CommandLabContainer {
 		this.isValid = !this.isValid;
 	}
 
+	isExecuting$ = new Subject<boolean>();
+
+	saveObs() {
+		return Observable.timer(utils.conversion.fromSecondsToMilliseconds(2))
+			.do(() => {
+				this.logger.debug("saveObs", "execute complete");
+			});
+	}
+
+	// using ng-command
+	saveCmd: ICommand = new Command(this.saveObs.bind(this));
 }
+
+/* 
+ Initial goal
+ - Given the execute func is an observable
+ - Given canExecute is an observable
+*/

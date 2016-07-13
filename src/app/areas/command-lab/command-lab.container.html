@@ -1,25 +1,48 @@
 <h1>Command Lab</h1>
 <p>Experimental area to test out command pattern with angular 2.</p>
 <main>
+	<div class="button-group">
+		<button class="btn btn-primary"
+			(click)="toggleValidity()">Mark as {{ isValid ? "Invalid" : "Valid" }}</button>
+	</div>
 	<div class="main clearfix">
 		<fieldset>
-			<legend>Status </legend>
+			<legend>Vanilla</legend>
 			<div class="form-group">
 				<div class="form-group">
 					<label>isValid</label>{{isValid}}</div>
 				<label>isExecuting</label>{{isExecuting}}</div>
 			<div class="form-group">
-				<label>saveCmd.canExecute</label>TODO</div>
+				<label>saveCmd.canExecute</label>TODO
+			</div>
+			<div class="button-group">
+				<button class="btn btn-primary"
+					[disabled]="!isValid || isExecuting"
+					(click)="save()">
+					Save
+					<small>execute</small>
+				</button>
+			</div>
+		</fieldset>
+		<fieldset>
+			<legend>Using Command</legend>
+			<div class="form-group">
+				<div class="form-group">
+					<label>isValid</label>{{isValid}}</div>
+				<label>saveCmd.isExecuting</label>{{saveCmd.isExecuting}}
+			</div>
+			<div class="form-group">
+				<label>saveCmd.canExecute</label>{{saveCmd.canExecute}}
+			</div>
+			<div class="button-group">
+				<button class="btn btn-primary"
+					[disabled]="!saveCmd.canExecute"
+					(click)="saveCmd.execute()">
+					Save
+					<small>execute</small>
+				</button>
+			</div>
 		</fieldset>
 	</div>
-	<div class="controls">
-		<button class="btn btn-primary"
-			[disabled]="!isValid || isExecuting"
-			(click)="save()">
-				Save
-				<small>execute</small>
-			</button>
-		<button class="btn btn-primary"
-			(click)="toggleValidity()">Mark as {{ isValid ? "Invalid" : "Valid" }}</button>
-	</div>
+
 </main>
