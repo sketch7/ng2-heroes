@@ -14,7 +14,7 @@
 	</div>
 	<div class="controls">
 		<button class="btn btn-primary"
-			[disabled]="isValid || isExecuting"
+			[disabled]="!isValid || isExecuting"
 			(click)="save()">
 				Save
 				<small>execute</small>
