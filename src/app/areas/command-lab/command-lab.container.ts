@@ -1,4 +1,4 @@
-import {Subject, Observable} from "rxjs/Rx";
+import {BehaviorSubject, Observable} from "rxjs/Rx";
 import {Component} from "@angular/core";
 import {utils} from "ssv-core";
 import {LoggerFactory, ILog} from "ssv-ng2-core";
@@ -36,17 +36,22 @@ export class CommandLabContainer {
 		this.isValid = !this.isValid;
 	}
 
-	isExecuting$ = new Subject<boolean>();
+	toggleValidity$(): void {
+		this.isValid$.next(!this.isValid$.value);
+	}
 
-	saveObs() {
+	isValid$ = new BehaviorSubject<boolean>(false);
+
+	save$() {
 		return Observable.timer(utils.conversion.fromSecondsToMilliseconds(2))
 			.do(() => {
-				this.logger.debug("saveObs", "execute complete");
+				this.logger.debug("save$", "execute complete");
 			});
 	}
 
 	// using ng-command
-	saveCmd: ICommand = new Command(this.saveObs.bind(this));
+	saveCmd: ICommand = new Command(this.save$.bind(this), this.isValid$);
+	// saveCmd: ICommand = new Command(this.save$.bind(this));
 }
 
 /* 

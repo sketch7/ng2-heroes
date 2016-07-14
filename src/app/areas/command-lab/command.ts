@@ -1,4 +1,6 @@
-import {Subject, Observable} from "rxjs/Rx";
+import {Observable} from "rxjs/Observable";
+import {Subscription} from "rxjs/Subscription";
+import {Subject} from "rxjs/Subject";
 
 export interface ICommand {
 	/**
@@ -12,68 +14,89 @@ export interface ICommand {
 	/**
 	 * Executes the command function.
 	 */
-	// execute: () => Promise<any>;
-	execute: () => any;
+	execute: () => void;
 }
 
-// @Injectable()
 export class Command implements ICommand {
 
 	isExecuting = false;
 	canExecute: boolean;
 
-	private canExecuteFn: () => boolean;
-	private executeFn: () => Observable<any>;
-
-	private executionPipe$ = new Subject();
+	private executionPipe$ = new Subject<{}>();
+	private isExecuting$ = new Subject<boolean>();
+	private isExecuting$$: Subscription;
+	private canExecute$$: Subscription;
+	private executionPipe$$: Subscription;
+	private executeCombined$$: Subscription;
 
 	constructor(
 		execute: () => Observable<any>,
-		canExecute?: () => boolean
+		canExecute?: Observable<boolean>
 	) {
-		this.executeFn = execute;
-		this.canExecuteFn = canExecute;
 
-		this.canExecute = canExecute ? canExecute() : true;
+		if (canExecute) {
+			this.canExecute$$ = canExecute
+				.do(x => {
+					console.log("[command::canExecute$] do trigger!");
+					this.canExecute = x;
+				})
+				.subscribe();
 
-		this.executionPipe$
+			this.executeCombined$$ = Observable.combineLatest(
+				this.isExecuting$,
+				canExecute
+				, (isExecuting, canExecuteResult) => {
+					console.log("[command::combineLatest$] update!");
+					this.canExecute = !isExecuting && canExecuteResult;
+					return this.canExecute;
+				}).subscribe();
+
+			this.isExecuting$.do(x => this.isExecuting = x);
+		} else {
+			this.canExecute = true;
+			this.isExecuting$$ = this.isExecuting$.do(x => {
+				this.isExecuting = x;
+				this.canExecute = !x;
+			}).subscribe();
+		}
+
+		this.executionPipe$$ = this.executionPipe$
+			.filter(() => this.canExecute)
 			.do(() => {
 				console.log("[command::excutionPipe$] do#1 - set execute");
-				this.isExecuting = true;
+				this.isExecuting$.next(true);
 			})
-			// .filter(this.canExecute)
-			.switchMap(() => this.executeFn())
+			.switchMap(() => execute())
 			.do(() => {
 				console.log("[command::excutionPipe$] do#2 - set idle");
-				this.isExecuting = false;
+				this.isExecuting$.next(false);
 			},
-			() => this.isExecuting = false,
-			() => this.isExecuting = false)
-			.subscribe(); // todo: dispose
+			() => {
+				console.log("[command::excutionPipe$] do#2 error - set idle");
+				this.isExecuting$.next(false);
+			})
+			.subscribe();
 	}
 
-	execute(): any {
-
-		if (this.isExecuting) {
-			console.log("[command::execute] still executing!");
-			return;
-		}
-
-		if (this.canExecute && this.canExecuteFn && !this.canExecuteFn()) {
-			console.log("[command::execute] Can execute? Nope!");
-			return;
-		}
-		// this.isExecuting = true;
+	execute() {
 		this.executionPipe$.next({});
-		// this.executeFn()
-		// 	.do(() => this.isExecuting = true,
-		// 	() => this.isExecuting = false,
-		// 	() => this.isExecuting = false)
-		// 	.subscribe();
+	}
 
-		// this.isExecuting = false;
-		// .finally(() => {
-		// 	this.isExecuting = false;
-		// });
+	destroy() {
+		if (!this.executeCombined$$) {
+			this.executeCombined$$.unsubscribe();
+		}
+		if (!this.executionPipe$$) {
+			this.executionPipe$$.unsubscribe();
+		}
+		if (!this.canExecute$$) {
+			this.canExecute$$.unsubscribe();
+		}
+		if (!this.isExecuting$$) {
+			this.isExecuting$$.unsubscribe();
+		}
+		if (!this.isExecuting$) {
+			this.isExecuting$.complete();
+		}
 	}
 }
