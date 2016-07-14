@@ -15,6 +15,15 @@ export class CommandLabContainer {
 	isValid = false;
 	isExecuting = false;
 
+	isValid$ = new BehaviorSubject<boolean>(false);
+
+	// using ng2-command
+	// saveCmd: ICommand = new Command(() => {
+	// 	this.logger.debug("do something", "execute complete");
+	// }, this.isValid$);
+	saveCmd: ICommand = new Command(this.save$.bind(this), this.isValid$, true);
+	// saveCmd: ICommand = new Command(this.save$.bind(this), null, true);
+
 	private logger: ILog;
 
 	constructor(
@@ -40,8 +49,6 @@ export class CommandLabContainer {
 		this.isValid$.next(!this.isValid$.value);
 	}
 
-	isValid$ = new BehaviorSubject<boolean>(false);
-
 	save$() {
 		return Observable.timer(utils.conversion.fromSecondsToMilliseconds(2))
 			.do(() => {
@@ -49,13 +56,4 @@ export class CommandLabContainer {
 			});
 	}
 
-	// using ng-command
-	saveCmd: ICommand = new Command(this.save$.bind(this), this.isValid$);
-	// saveCmd: ICommand = new Command(this.save$.bind(this));
 }
-
-/* 
- Initial goal
- - Given the execute func is an observable
- - Given canExecute is an observable
-*/

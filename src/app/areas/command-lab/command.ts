@@ -12,11 +12,19 @@ export interface ICommand {
 	 */
 	canExecute: boolean;
 	/**
-	 * Executes the command function.
+	 * Execute function to invoke.
 	 */
 	execute: () => void;
 }
 
+
+/**
+ * Command object used to encapsulate information which is needed to perform an action.
+ * 
+ * @export
+ * @class Command
+ * @implements {ICommand}
+ */
 export class Command implements ICommand {
 
 	isExecuting = false;
@@ -29,11 +37,18 @@ export class Command implements ICommand {
 	private executionPipe$$: Subscription;
 	private executeCombined$$: Subscription;
 
+	/**
+	 * Creates an instance of Command.
+	 * 
+	 * @param {(() => any)} execute Execute function to invoke - use `isAsync: true` when {Observable<any>}.
+	 * @param {Observable<boolean>} [canExecute] Observable which determines whether it can execute or not.
+	 * @param {boolean} [isAsync] Indicates that the execute function is async e.g. Observable.
+	 */
 	constructor(
-		execute: () => Observable<any>,
-		canExecute?: Observable<boolean>
+		execute: () => any,
+		canExecute?: Observable<boolean>,
+		isAsync?: boolean
 	) {
-
 		if (canExecute) {
 			this.canExecute$$ = canExecute
 				.do(x => {
@@ -59,23 +74,7 @@ export class Command implements ICommand {
 				this.canExecute = !x;
 			}).subscribe();
 		}
-
-		this.executionPipe$$ = this.executionPipe$
-			.filter(() => this.canExecute)
-			.do(() => {
-				console.log("[command::excutionPipe$] do#1 - set execute");
-				this.isExecuting$.next(true);
-			})
-			.switchMap(() => execute())
-			.do(() => {
-				console.log("[command::excutionPipe$] do#2 - set idle");
-				this.isExecuting$.next(false);
-			},
-			() => {
-				console.log("[command::excutionPipe$] do#2 error - set idle");
-				this.isExecuting$.next(false);
-			})
-			.subscribe();
+		this.buildExecutionPipe(execute, isAsync);
 	}
 
 	execute() {
@@ -99,4 +98,29 @@ export class Command implements ICommand {
 			this.isExecuting$.complete();
 		}
 	}
+
+	private buildExecutionPipe(execute: () => any, isAsync?: boolean) {
+		let pipe$ = this.executionPipe$
+			.filter(() => this.canExecute)
+			.do(() => {
+				console.log("[command::excutionPipe$] do#1 - set execute");
+				this.isExecuting$.next(true);
+			});
+
+		pipe$ = isAsync
+			? pipe$.switchMap(() => execute())
+			: pipe$.do(() => execute());
+
+		pipe$ = pipe$
+			.do(() => {
+				console.log("[command::excutionPipe$] do#2 - set idle");
+				this.isExecuting$.next(false);
+			},
+			() => {
+				console.log("[command::excutionPipe$] do#2 error - set idle");
+				this.isExecuting$.next(false);
+			});
+		this.executionPipe$$ = pipe$.subscribe();
+	}
+
 }
