@@ -4,11 +4,15 @@ import {utils} from "ssv-core";
 import {LoggerFactory, ILog} from "ssv-ng2-core";
 
 import {ICommand, Command} from "./command";
+import {CommandDirective} from "./command.directive";
 
 @Component({
 	moduleId: module.id,
 	selector: "app-command-lab-container",
-	templateUrl: "command-lab.container.html"
+	templateUrl: "command-lab.container.html",
+	directives: [
+		CommandDirective
+	]
 })
 export class CommandLabContainer {
 

@@ -11,10 +11,15 @@ export interface ICommand {
 	 * Determines whether the command can execute or not.
 	 */
 	canExecute: boolean;
+	canExecute$?: Observable<boolean>;
 	/**
 	 * Execute function to invoke.
 	 */
-	execute: () => void;
+	execute(): void;
+	/**
+	 * Destroy all resources.
+	 */
+	destroy(): void;
 }
 
 
@@ -29,6 +34,7 @@ export class Command implements ICommand {
 
 	isExecuting = false;
 	canExecute: boolean;
+	canExecute$: Observable<boolean>;
 
 	private executionPipe$ = new Subject<{}>();
 	private isExecuting$ = new Subject<boolean>();
@@ -46,25 +52,26 @@ export class Command implements ICommand {
 	 */
 	constructor(
 		execute: () => any,
-		canExecute?: Observable<boolean>,
+		canExecute$?: Observable<boolean>,
 		isAsync?: boolean
 	) {
-		if (canExecute) {
-			this.canExecute$$ = canExecute
+		if (canExecute$) {
+			this.canExecute$$ = canExecute$
 				.do(x => {
 					console.log("[command::canExecute$] do trigger!");
 					this.canExecute = x;
 				})
 				.subscribe();
 
-			this.executeCombined$$ = Observable.combineLatest(
+			this.canExecute$ = Observable.combineLatest(
 				this.isExecuting$,
-				canExecute
+				canExecute$
 				, (isExecuting, canExecuteResult) => {
 					console.log("[command::combineLatest$] update!");
 					this.canExecute = !isExecuting && canExecuteResult;
 					return this.canExecute;
-				}).subscribe();
+				});
+			this.executeCombined$$ = this.canExecute$.subscribe();
 
 			this.isExecuting$.do(x => this.isExecuting = x);
 		} else {
