@@ -73,7 +73,10 @@ export class Command implements ICommand {
 				});
 			this.executeCombined$$ = this.canExecute$.subscribe();
 
-			this.isExecuting$.do(x => this.isExecuting = x);
+			this.isExecuting$$ = this.isExecuting$.do(x => {
+				console.log("[command::isExecuting$] update!", x);
+				this.isExecuting = x;
+			}).subscribe();
 		} else {
 			this.canExecute = true;
 			this.isExecuting$$ = this.isExecuting$.do(x => {
