@@ -68,11 +68,14 @@ export class Command implements ICommand {
 				});
 			this.executeCombined$$ = this.canExecute$.subscribe();
 		} else {
-			this.canExecute = true;
-			this.isExecuting$$ = this.isExecuting$.do(x => {
-				this.isExecuting = x;
-				this.canExecute = !x;
-			}).subscribe();
+			this.canExecute$ = this.isExecuting$.map(x => {
+				const canExecute = !x;
+				this.canExecute = canExecute;
+				return canExecute;
+			});
+			this.isExecuting$$ = this.isExecuting$
+				.do(x => this.isExecuting = x)
+				.subscribe();
 		}
 		this.buildExecutionPipe(execute, isAsync);
 	}
