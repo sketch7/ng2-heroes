@@ -1,6 +1,7 @@
 import {Observable} from "rxjs/Observable";
 import {Subscription} from "rxjs/Subscription";
 import {Subject} from "rxjs/Subject";
+import {BehaviorSubject} from "rxjs/BehaviorSubject";
 
 export interface ICommand {
 	/**
@@ -37,7 +38,7 @@ export class Command implements ICommand {
 	canExecute$: Observable<boolean>;
 
 	private executionPipe$ = new Subject<{}>();
-	private isExecuting$ = new Subject<boolean>();
+	private isExecuting$ = new BehaviorSubject<boolean>(false);
 	private isExecuting$$: Subscription;
 	private canExecute$$: Subscription;
 	private executionPipe$$: Subscription;
@@ -56,27 +57,16 @@ export class Command implements ICommand {
 		isAsync?: boolean
 	) {
 		if (canExecute$) {
-			this.canExecute$$ = canExecute$
-				.do(x => {
-					console.log("[command::canExecute$] do trigger!");
-					this.canExecute = x;
-				})
-				.subscribe();
-
 			this.canExecute$ = Observable.combineLatest(
 				this.isExecuting$,
 				canExecute$
 				, (isExecuting, canExecuteResult) => {
-					console.log("[command::combineLatest$] update!");
+					console.log("[command::combineLatest$] update!", { isExecuting, canExecuteResult });
+					this.isExecuting = isExecuting;
 					this.canExecute = !isExecuting && canExecuteResult;
 					return this.canExecute;
 				});
 			this.executeCombined$$ = this.canExecute$.subscribe();
-
-			this.isExecuting$$ = this.isExecuting$.do(x => {
-				console.log("[command::isExecuting$] update!", x);
-				this.isExecuting = x;
-			}).subscribe();
 		} else {
 			this.canExecute = true;
 			this.isExecuting$$ = this.isExecuting$.do(x => {

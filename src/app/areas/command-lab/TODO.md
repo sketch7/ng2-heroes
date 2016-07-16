@@ -1,9 +1,7 @@
 # Command
 
+# TODO
+ - Expose `isExecuting$` so its possible to hook to it.
+
 # Issues
-
-## Directive
- - Initial value is not being set correctly for `canExecute$`
-
-## Command
- - `isExecuting` is not being updated
+ - fix `canExecute$` when not providing canExecute param
