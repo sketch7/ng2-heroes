@@ -8,6 +8,7 @@ export interface ICommand {
 	 * Determines whether the command is currently executing.
 	 */
 	isExecuting: boolean;
+	isExecuting$?: Observable<boolean>;
 	/**
 	 * Determines whether the command can execute or not.
 	 */
@@ -34,15 +35,14 @@ export interface ICommand {
 export class Command implements ICommand {
 
 	isExecuting = false;
+	isExecuting$ = new BehaviorSubject<boolean>(false);
 	canExecute: boolean;
 	canExecute$: Observable<boolean>;
 
 	private executionPipe$ = new Subject<{}>();
-	private isExecuting$ = new BehaviorSubject<boolean>(false);
 	private isExecuting$$: Subscription;
 	private canExecute$$: Subscription;
 	private executionPipe$$: Subscription;
-	private executeCombined$$: Subscription;
 
 	/**
 	 * Creates an instance of Command.
@@ -66,7 +66,7 @@ export class Command implements ICommand {
 					this.canExecute = !isExecuting && canExecuteResult;
 					return this.canExecute;
 				});
-			this.executeCombined$$ = this.canExecute$.subscribe();
+			this.canExecute$$ = this.canExecute$.subscribe();
 		} else {
 			this.canExecute$ = this.isExecuting$.map(x => {
 				const canExecute = !x;
@@ -85,19 +85,16 @@ export class Command implements ICommand {
 	}
 
 	destroy() {
-		if (!this.executeCombined$$) {
-			this.executeCombined$$.unsubscribe();
-		}
-		if (!this.executionPipe$$) {
+		if (this.executionPipe$$) {
 			this.executionPipe$$.unsubscribe();
 		}
-		if (!this.canExecute$$) {
+		if (this.canExecute$$) {
 			this.canExecute$$.unsubscribe();
 		}
-		if (!this.isExecuting$$) {
+		if (this.isExecuting$$) {
 			this.isExecuting$$.unsubscribe();
 		}
-		if (!this.isExecuting$) {
+		if (this.isExecuting$) {
 			this.isExecuting$.complete();
 		}
 	}

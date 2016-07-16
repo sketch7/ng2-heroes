@@ -1,4 +1,5 @@
-import { Directive, OnInit, OnDestroy, Input, HostBinding, HostListener } from "@angular/core";
+import {Directive, OnInit, OnDestroy, Input, HostBinding, HostListener} from "@angular/core";
+import {Subscription} from "rxjs/Subscription";
 
 import {ICommand} from "./command";
 
@@ -9,13 +10,22 @@ export class CommandDirective implements OnInit, OnDestroy {
 
 	@Input() command: ICommand;
 	@HostBinding("disabled") isDisabled: boolean;
+	@HostBinding("class.executing") isExecuting: boolean;
+
+	private canExecute$$: Subscription;
+	private isExecuting$$: Subscription;
 
 	ngOnInit() {
 		console.log("[commandDirective::init]");
-		this.command.canExecute$
+		this.canExecute$$ = this.command.canExecute$
 			.do(x => {
 				console.log("[commandDirective::canExecute$]", x);
 				this.isDisabled = !x;
+			}).subscribe();
+		this.isExecuting$$ = this.command.isExecuting$
+			.do(x => {
+				console.log("[commandDirective::isExecuting$]", x);
+				this.isExecuting = x;
 			}).subscribe();
 	}
 
@@ -28,5 +38,7 @@ export class CommandDirective implements OnInit, OnDestroy {
 	ngOnDestroy() {
 		console.log("[commandDirective::destroy]");
 		this.command.destroy();
+		this.canExecute$$.unsubscribe();
+		this.isExecuting$$.unsubscribe();
 	}
 }
