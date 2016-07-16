@@ -19,7 +19,7 @@ export interface ICommand {
 	 */
 	execute(): void;
 	/**
-	 * Destroy all resources.
+	 * Disposes all resources held by subscriptions.
 	 */
 	destroy(): void;
 }
