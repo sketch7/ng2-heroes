@@ -1,7 +1,7 @@
 # Command
 
 # TODO
- - Expose `isExecuting$` so its possible to hook to it.
+ - customizable cssClass name for `executing` 
 
 # Issues
  - none :)
