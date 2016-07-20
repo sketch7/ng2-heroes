@@ -1,7 +1,7 @@
 # Command
 
-# TODO
- - customizable cssClass name for `executing` 
+## TODO
+ - global customizable cssClass name for command options e.g. `executingCssClass`
 
-# Issues
+## Issues
  - none :)
