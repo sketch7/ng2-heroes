@@ -18,7 +18,7 @@ export class CommandLabContainer {
 	isValid = false;
 	isExecuting = false;
 
-	isValid$ = new BehaviorSubject<boolean>(false);
+	isValid$ = new BehaviorSubject(false);
 
 	// using ng2-command
 	// saveCmd: ICommand = new Command(() => {

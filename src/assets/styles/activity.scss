@@ -18,5 +18,9 @@ i {
 button {
 	&.executing {
 		// do something...
+		background: red;
+	}
+	&.is-busy {
+		background: blue;
 	}
 }
