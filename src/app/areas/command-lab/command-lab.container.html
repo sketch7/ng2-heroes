@@ -45,9 +45,11 @@
 					Save
 					<small>execute</small>
 				</button>
+				
 				<button class="btn btn-primary"
 					[command]="saveCmd"
 					>
+					<i *ngIf="saveCmd.isExecuting" class="ai-circled ai-indicator ai-dark-spin small"></i>	
 					Save
 					<small>execute</small>
 				</button>

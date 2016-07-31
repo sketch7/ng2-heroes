@@ -2,9 +2,8 @@ import {BehaviorSubject, Observable} from "rxjs/Rx";
 import {Component} from "@angular/core";
 import {utils} from "ssv-core";
 import {LoggerFactory, ILog} from "ssv-ng2-core";
+import {CommandDirective, Command, ICommand} from "@ssv/ng2-command";
 
-import {ICommand, Command} from "./command";
-import {CommandDirective} from "./command.directive";
 
 @Component({
 	moduleId: module.id,

@@ -19,6 +19,7 @@
 		"@ngrx": "n:@ngrx",
 		"ngrx-store-logger": "n:ngrx-store-logger",
 		"angular2-in-memory-web-api": "n:angular2-in-memory-web-api",
+		"@ssv": "n:@ssv",
 		"ssv-core": "n:ssv-core",
 		"ssv-ng2-core": "n:ssv-ng2-core",
 		"lodash": "n:lodash",
@@ -33,6 +34,7 @@
 		"angular2-in-memory-web-api": { defaultExtension: "js" },
 		"ssv-core": { main: "dist/amd/index.js" },
 		"ssv-ng2-core": { main: "dist/amd/index.js" },
+		"@ssv/ng2-command": { main: "dist/amd/index.js" },
 		"fuse": { main: "fuse.js" }
 	};
 
