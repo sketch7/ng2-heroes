@@ -1,5 +1,5 @@
 import {Component, OnInit, OnDestroy} from "@angular/core";
-import {Router, ActivatedRoute, ROUTER_DIRECTIVES} from "@angular/router";
+import {Router, ActivatedRoute} from "@angular/router";
 import {Store} from "@ngrx/store";
 import {Observable, Subscription} from "rxjs/Rx";
 import {LoggerFactory, ILog} from "ssv-ng2-core";
@@ -15,7 +15,6 @@ import {HeroSelector} from "../hero.selector";
 	selector: "app-hero-detail-container",
 	templateUrl: "hero-detail.container.html",
 	directives: [
-		ROUTER_DIRECTIVES,
 		HeroDetailComponent
 	]
 })

@@ -1,5 +1,4 @@
 import {Component, OnInit, OnDestroy} from "@angular/core";
-import {ROUTER_DIRECTIVES} from "@angular/router";
 import {Observable} from "rxjs/Observable";
 import {Store} from "@ngrx/store";
 import {utils} from "ssv-core";
@@ -15,7 +14,6 @@ import {UserState} from "./user.model";
 	selector: "app-user-area-container",
 	templateUrl: "user-area.container.html",
 	directives: [
-		ROUTER_DIRECTIVES,
 		UserAreaComponent
 	]
 })

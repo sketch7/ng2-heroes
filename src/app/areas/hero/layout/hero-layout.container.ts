@@ -1,5 +1,4 @@
 import {Component, OnInit} from "@angular/core";
-import {ROUTER_DIRECTIVES} from "@angular/router";
 import {Store} from "@ngrx/store";
 import {Observable} from "rxjs/Observable";
 
@@ -13,7 +12,6 @@ import {HeroSelector} from "../hero.selector";
 	selector: "app-hero-layout-container",
 	templateUrl: "hero-layout.container.html",
 	directives: [
-		ROUTER_DIRECTIVES,
 		HeroListComponent
 	]
 })

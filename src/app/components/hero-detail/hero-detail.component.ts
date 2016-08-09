@@ -1,15 +1,11 @@
 import {Component, Input} from "@angular/core";
-import {ROUTER_DIRECTIVES} from "@angular/router";
 
 import {Hero} from "../../index";
 
 @Component({
 	moduleId: module.id,
 	selector: "app-hero-detail",
-	templateUrl: "hero-detail.component.html",
-	directives: [
-		ROUTER_DIRECTIVES
-	]
+	templateUrl: "hero-detail.component.html"
 })
 export class HeroDetailComponent {
 

@@ -1,4 +1,4 @@
-import {provideRouter, RouterConfig} from "@angular/router";
+import {Routes, RouterModule} from "@angular/router";
 
 import {
 	HomeContainer,
@@ -8,7 +8,7 @@ import {
 	CommandLabContainer,
 } from "./areas/index";
 
-const heroRoutes: RouterConfig = [
+const heroRoutes: Routes = [
 	{
 		path: "heroes",
 		component: HeroLayoutContainer,
@@ -19,12 +19,10 @@ const heroRoutes: RouterConfig = [
 	},
 ];
 
-const routes: RouterConfig = [
+const routes: Routes = [
 	{ path: "", component: HomeContainer },
 	{ path: "command-lab", component: CommandLabContainer },
 	...heroRoutes
 ];
 
-export const APP_ROUTER_PROVIDERS = [
-	provideRouter(routes)
-];
+export const routing = RouterModule.forRoot(routes);
