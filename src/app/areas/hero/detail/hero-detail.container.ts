@@ -2,7 +2,7 @@ import {Component, OnInit, OnDestroy} from "@angular/core";
 import {Router, ActivatedRoute} from "@angular/router";
 import {Store} from "@ngrx/store";
 import {Observable, Subscription} from "rxjs/Rx";
-import {LoggerFactory, ILog} from "ssv-ng2-core";
+import {LoggerFactory, ILog} from "@ssv/ng2-core";
 
 import {AppState} from "../../../app.state";
 import {HeroDetailComponent} from "../../../components/index";

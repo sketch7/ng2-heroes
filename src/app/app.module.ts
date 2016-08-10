@@ -6,7 +6,7 @@ import {provideStore, combineReducers} from "@ngrx/store";
 import {runEffects} from "@ngrx/effects";
 import {storeLogger} from "ngrx-store-logger";
 import {InMemoryBackendService, SEED_DATA, InMemoryBackendConfig} from "angular2-in-memory-web-api/core";
-import {LOGGER_PROVIDERS} from "ssv-ng2-core";
+import {CoreModule} from "@ssv/ng2-core";
 import {CommandConfig, CommandOptions} from "@ssv/ng2-command";
 
 import {
@@ -22,9 +22,12 @@ import {MockAppData} from "./app.mock-data";
 
 @NgModule({
 	imports: [
+		// @angular
 		BrowserModule,
 		HttpModule,
-		routing
+		routing,
+		// @ssv
+		CoreModule
 	],
 	declarations: [
 		AppComponent
@@ -44,7 +47,7 @@ import {MockAppData} from "./app.mock-data";
 		{ provide: SEED_DATA, useClass: MockAppData },
 		{ provide: InMemoryBackendConfig, useValue: { delay: 120 } },
 
-		LOGGER_PROVIDERS,
+		// @ssv
 		{ provide: CommandConfig, useValue: { executingCssClass: "is-busy" } as CommandOptions },
 
 		USER_PROVIDERS,
