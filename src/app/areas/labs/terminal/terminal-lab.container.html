@@ -10,13 +10,18 @@
 				<input type="text"
 					name="command"
 					class="form-control"
-					[(ngModel)]="command"
+					[formControl]="command"
 					autocomplete="off"
 					spellcheck="false"
 					autocorrect="off"
 					placeholder="enter a command and press enter..." />
 			</div>
 		</div>
+		<ul>
+			<li *ngFor="let item of commands$ | async">
+				<strong>{{item.name}}</strong> <i *ngIf="item.helpText">- {{item.helpText}}</i>
+			</li>
+		</ul>
 	</form>
 	<div>
 		<h2>Health {{health}}</h2>

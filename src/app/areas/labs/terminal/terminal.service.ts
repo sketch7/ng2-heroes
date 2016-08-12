@@ -35,6 +35,17 @@ export class TerminalService {
 		this.commands.delete(commandName);
 	}
 
+	queryCommands(commandTerm: string): TerminalCommand[] {
+		const parsedCommandTerm = this.parseCommand(commandTerm);
+		let commands: TerminalCommand[] = [];
+		this.commands.forEach(x => {
+			if (x.name.includes(parsedCommandTerm.name)) {
+				commands.push(x);
+			}
+		});
+		return commands;
+	}
+
 	private validate(command: TerminalCommand) {
 		if (!command) {
 			throw new Error(`[terminal] command must be defined.`);

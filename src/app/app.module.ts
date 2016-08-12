@@ -1,7 +1,7 @@
 import {NgModule} from "@angular/core";
 import {BrowserModule} from "@angular/platform-browser";
 import {HttpModule, XHRBackend} from "@angular/http";
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule } from "@angular/forms";
 import {compose} from "@ngrx/core/compose";
 import {provideStore, combineReducers} from "@ngrx/store";
 import {runEffects} from "@ngrx/effects";
@@ -28,6 +28,7 @@ import {MockAppData} from "./app.mock-data";
 		BrowserModule,
 		HttpModule,
 		FormsModule,
+		ReactiveFormsModule,
 		routing,
 		// @ssv
 		CoreModule
