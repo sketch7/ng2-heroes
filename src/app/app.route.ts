@@ -6,6 +6,7 @@ import {
 	HeroDetailContainer,
 	HeroListContainer,
 	CommandLabContainer,
+	labsRoutes
 } from "./areas/index";
 
 const heroRoutes: Routes = [
@@ -22,7 +23,8 @@ const heroRoutes: Routes = [
 const routes: Routes = [
 	{ path: "", component: HomeContainer },
 	{ path: "command-lab", component: CommandLabContainer },
-	...heroRoutes
+	...heroRoutes,
+	...labsRoutes
 ];
 
 export const routing = RouterModule.forRoot(routes);

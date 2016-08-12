@@ -1,0 +1,21 @@
+<h1>Terminal Lab</h1>
+<p>Experimental area for terminal.</p>
+<main>
+	<form (ngSubmit)="execute()">
+		<div class="form-group">
+			<div class="input-group">
+				<span class="input-group-addon">
+			<i class="glyphicon glyphicon-console"></i> 
+			</span>
+				<input type="text"
+					name="command"
+					class="form-control"
+					[(ngModel)]="command"
+					autocomplete="off"
+					spellcheck="false"
+					autocorrect="off"
+					placeholder="enter a command and press enter..." />
+			</div>
+		</div>
+	</form>
+</main>

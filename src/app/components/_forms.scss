@@ -1,0 +1,19 @@
+.input-group {
+	span {
+		background-color: $hero-search-icon-bg-color;
+		border-color: $hero-search-border-color;
+	}
+	i {
+		color: $hero-search-icon-text-color;
+	}
+}
+
+input[type=text] {
+	color: $hero-search-text-color;
+	background: $hero-search-bg-color;
+	border-color: $hero-search-border-color;
+	&:focus {
+		border-color: $hero-search-border-focus-color;
+		box-shadow: 0 0 5px $hero-search-border-focus-color;
+	}
+}
