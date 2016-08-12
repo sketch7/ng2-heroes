@@ -26,24 +26,22 @@ export class TerminalLabContainer {
 		this.logger = loggerFactory.get("terminalLabContainer");
 		this.logger.debug("ctor");
 
-		this.terminalService.register({
-			command: "health",
-			helpText: "Get health amount",
-			execute: () => console.log(`Current health is '${this.health}'`)
-		});
-
-		this.terminalService.register({
-			command: "restore-health",
-			helpText: "Restore health to full",
-			execute: () => this.health = 100
-		});
-
-		this.terminalService.register({
-			command: "set-health",
-			helpText: "Set health to given amount",
-			execute: (value) => this.health = value
-		});
-
+		this.terminalService
+			.register({
+				name: "health",
+				helpText: "Get health amount",
+				execute: () => console.log(`Current health is '${this.health}'`)
+			})
+			.register({
+				name: "restore-health",
+				helpText: "Restore health to full",
+				execute: () => this.health = 100
+			})
+			.register({
+				name: "set-health",
+				helpText: "Set health to given amount",
+				execute: (value) => this.health = value
+			});
 	}
 
 	execute(): void {
