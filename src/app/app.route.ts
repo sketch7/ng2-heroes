@@ -5,7 +5,6 @@ import {
 	HeroLayoutContainer,
 	HeroDetailContainer,
 	HeroListContainer,
-	CommandLabContainer,
 	labsRoutes
 } from "./areas/index";
 
@@ -22,7 +21,6 @@ const heroRoutes: Routes = [
 
 const routes: Routes = [
 	{ path: "", component: HomeContainer },
-	{ path: "command-lab", component: CommandLabContainer },
 	...heroRoutes,
 	...labsRoutes
 ];
