@@ -14,7 +14,8 @@ import {
 	USER_PROVIDERS,
 	NOTIFICATION_PROVIDERS,
 	HERO_PROVIDERS,
-	HeroEffect
+	HeroEffect,
+	TerminalService
 } from "./areas/index";
 import {AppComponent} from "./app.component";
 import {routing} from "./app.route";
@@ -55,7 +56,7 @@ import {MockAppData} from "./app.mock-data";
 		USER_PROVIDERS,
 		NOTIFICATION_PROVIDERS,
 		HERO_PROVIDERS,
-
+		TerminalService,
 	]
 })
 export class AppModule {

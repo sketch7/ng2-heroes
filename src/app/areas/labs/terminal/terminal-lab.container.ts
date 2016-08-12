@@ -1,6 +1,8 @@
 import {Component} from "@angular/core";
 import {LoggerFactory, ILog} from "@ssv/ng2-core";
 
+import {TerminalService} from "./terminal.service";
+
 @Component({
 	moduleId: module.id,
 	selector: "app-terminal-lab-container",
@@ -11,19 +13,42 @@ import {LoggerFactory, ILog} from "@ssv/ng2-core";
 })
 export class TerminalLabContainer {
 
+	health = 50;
+
 	command = "";
 
 	private logger: ILog;
 
 	constructor(
-		loggerFactory: LoggerFactory
+		loggerFactory: LoggerFactory,
+		private terminalService: TerminalService
 	) {
 		this.logger = loggerFactory.get("terminalLabContainer");
 		this.logger.debug("ctor");
+
+		this.terminalService.register({
+			command: "health",
+			helpText: "Get health amount",
+			execute: () => console.log(`Current health is '${this.health}'`)
+		});
+
+		this.terminalService.register({
+			command: "restore-health",
+			helpText: "Restore health to full",
+			execute: () => this.health = 100
+		});
+
+		this.terminalService.register({
+			command: "set-health",
+			helpText: "Set health to given amount",
+			execute: (value) => this.health = value
+		});
+
 	}
 
 	execute(): void {
-		this.logger.debug("execute", "", this.command);
+		this.logger.debug("execute", "executing command...", this.command);
+		this.terminalService.execute(this.command);
 	}
 
 }
