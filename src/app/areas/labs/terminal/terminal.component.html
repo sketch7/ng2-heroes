@@ -19,4 +19,14 @@
 			<strong>{{item.name}}</strong> <i *ngIf="item.helpText">- {{item.helpText}}</i>
 		</li>
 	</ul>
+	<div>
+		<h2>Debug</h2>
+		<div>
+			<span>Index</span>={{commandIndex}}
+		</div>
+		<div>
+			<span>Predicted Command</span>
+			{{predictedCommand | json}}
+		</div>
+	</div>
 </form>

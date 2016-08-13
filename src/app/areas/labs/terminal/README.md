@@ -7,4 +7,5 @@ command system.
  	- command name aliases
  - Component
  	- display available commands immediate
-	- tabs with autocomplete
+	- tabs to cycle with autocomplete
+		- esc to cancel cycle
