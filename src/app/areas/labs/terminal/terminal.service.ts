@@ -2,6 +2,7 @@ import * as _ from "lodash";
 import {Injectable} from "@angular/core";
 
 export interface TerminalCommand {
+	// todo: implement name aliases
 	name: string;
 	helpText?: string;
 	execute(...args: any[]): void;
@@ -11,6 +12,10 @@ export interface TerminalCommand {
 export class TerminalService {
 
 	private commands = new Map<string, TerminalCommand>();
+
+	constructor() {
+		this.registerInternalCommands();
+	}
 
 	register(command: TerminalCommand): this {
 		this.validate(command);
@@ -46,6 +51,14 @@ export class TerminalService {
 		return commands;
 	}
 
+	private registerInternalCommands() {
+		this.register({
+			name: "help",
+			helpText: "lists available commands",
+			execute: this.helpCommand.bind(this)
+		});
+	}
+
 	private validate(command: TerminalCommand) {
 		if (!command) {
 			throw new Error(`[terminal] command must be defined.`);
@@ -72,4 +85,11 @@ export class TerminalService {
 		};
 	}
 
+	private helpCommand() {
+		console.group("Terminal Commands");
+		this.commands.forEach(x => {
+			console.log(`[${x.name}] ${x.helpText}`);
+		});
+		console.groupEnd();
+	}
 }

@@ -37,14 +37,14 @@ export class UserAreaContainer implements OnInit, OnDestroy {
 		this.user$ = this.store.select(this.userSelector.get());
 		this.unreadNotificationCount$ = this.store.select(this.notificationSelector.getUnreadCount());
 
-		this.addNotificationIntervalToken = setInterval(() => {
-			this.store.dispatch(this.notificationAction.add({
-				id: this.nextNotificationIdSeed,
-				isRead: false,
-				title: "New message!"
-			}));
-			this.nextNotificationIdSeed++;
-		}, utils.conversion.fromSecondsToMilliseconds(6));
+		// this.addNotificationIntervalToken = setInterval(() => {
+		// 	this.store.dispatch(this.notificationAction.add({
+		// 		id: this.nextNotificationIdSeed,
+		// 		isRead: false,
+		// 		title: "New message!"
+		// 	}));
+		// 	this.nextNotificationIdSeed++;
+		// }, utils.conversion.fromSecondsToMilliseconds(6));
 	}
 
 	ngOnDestroy() {

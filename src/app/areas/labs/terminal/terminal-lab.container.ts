@@ -1,16 +1,20 @@
 import {Observable} from "rxjs/Observable";
-import {Component, OnInit} from "@angular/core";
+import {Component} from "@angular/core";
 import {FormControl} from "@angular/forms";
 import {LoggerFactory, ILog} from "@ssv/ng2-core";
 
 import {TerminalService, TerminalCommand} from "./terminal.service";
+import {TerminalComponent} from "./terminal.component";
 
 @Component({
 	moduleId: module.id,
 	selector: "app-terminal-lab-container",
-	templateUrl: "terminal-lab.container.html"
+	templateUrl: "terminal-lab.container.html",
+	directives: [
+		TerminalComponent
+	]
 })
-export class TerminalLabContainer implements OnInit {
+export class TerminalLabContainer {
 
 	health = 50;
 
@@ -47,18 +51,6 @@ export class TerminalLabContainer implements OnInit {
 				helpText: "reloads the window",
 				execute: () => window.location.reload()
 			});
-	}
-
-	ngOnInit() {
-		this.commands$ = this.command.valueChanges
-			.debounceTime(300)
-			.distinctUntilChanged()
-			.map(x => this.terminalService.queryCommands(x));
-	}
-
-	execute(): void {
-		this.logger.debug("execute", "executing command...", this.command);
-		this.terminalService.execute(this.command.value);
 	}
 
 }
