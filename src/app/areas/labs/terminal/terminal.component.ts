@@ -33,15 +33,14 @@ export class TerminalComponent implements OnInit {
 		this.commands$ = this.command.valueChanges
 			.debounceTime(300)
 			.distinctUntilChanged()
-			.do(x => this.logger.debug("valueChanges", null, x))
 			.filter((x: string) => !this.predictedCommand || this.predictedCommand.name !== x)
 			.do(() => this.commandIndex = -1)
 			.map(x => this.terminalService.queryCommands(x))
-			.do(x => this.commands = x);
+			.do(x => this.commands = x)
+			.do(x => this.commandIndex = this.findCommandIndex(x, this.command.value));
 
 		Observable.fromEvent<KeyboardEvent>(document, "keydown")
 			.filter((x) => x.keyCode === TAB_KEY_CODE)
-			.do((x) => this.logger.debug("key press#2", null, x))
 			.filter(x => this.commands && this.commands.length > 0)
 			.do(x => {
 				x.preventDefault();
@@ -63,5 +62,10 @@ export class TerminalComponent implements OnInit {
 		return this.commandIndex >= 0
 			? this.commands[this.commandIndex]
 			: null;
+	}
+
+	private findCommandIndex(commands: TerminalCommand[], term: string) {
+		return commands.map(x => x.name)
+			.indexOf(term);
 	}
 }
