@@ -33,17 +33,17 @@ export class TerminalLabContainer {
 		this.terminalService
 			.register({
 				name: "health",
-				helpText: "Get health amount",
+				helpText: "get health amount",
 				execute: () => console.log(`Current health is '${this.health}'`)
 			})
 			.register({
 				name: "restore-health",
-				helpText: "Restore health to full",
+				helpText: "restore health to full",
 				execute: () => this.health = 100
 			})
 			.register({
 				name: "set-health",
-				helpText: "Set health to given amount e.g. 500",
+				helpText: "set health to given amount e.g. 500",
 				execute: value => this.health = value
 			})
 			.register({

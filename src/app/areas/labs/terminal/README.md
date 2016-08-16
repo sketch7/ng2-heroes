@@ -4,8 +4,8 @@ command system.
 
 ## Todo
  - Service
- 	- command name aliases
+	- command name aliases e.g. [help, ?]
+	- decouple from angular + add service wrapper
+	- recent executed commands
  - Component
- 	- display available commands immediate
-	- tabs to cycle with autocomplete
-		- esc to cancel cycle
+	- esc to clear
