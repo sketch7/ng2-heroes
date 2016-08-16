@@ -33,7 +33,9 @@ export class TerminalComponent implements OnInit {
 		this.commands$ = this.command.valueChanges
 			.debounceTime(300)
 			.distinctUntilChanged()
-			.do(x => this.commandIndex = -1)
+			.do(x => this.logger.debug("valueChanges", null, x))
+			.filter((x: string) => !this.predictedCommand || this.predictedCommand.name !== x)
+			.do(() => this.commandIndex = -1)
 			.map(x => this.terminalService.queryCommands(x))
 			.do(x => this.commands = x);
 
@@ -47,6 +49,7 @@ export class TerminalComponent implements OnInit {
 				this.commandIndex = (this.commandIndex + 1) >= this.commands.length
 					? 0
 					: ++this.commandIndex;
+				this.command.setValue(this.predictedCommand.name);
 			})
 			.subscribe();
 	}
