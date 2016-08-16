@@ -14,13 +14,17 @@
 				placeholder="enter a command and press enter or help..." />
 		</div>
 	</div>
-	<div class="terminal-autocomplete">
-		<ul>
-			<li *ngFor="let item of commands$ | async"
-				[class.selected]="item === predictedCommand">
-				<strong>{{item.name}}</strong> <i *ngIf="item.helpText">- {{item.helpText}}</i>
-			</li>
-		</ul>
+	<div class="terminal-autocomplete" >
+		<div class="terminal-autocomplete-inner" *ngIf="commands$ | async">
+			<span class="terminal-autocomplete-hint">*Press <kbd>Tab</kbd> to cycle between commands</span>
+			<span class="terminal-autocomplete-hint">*Press <kbd>Enter</kbd> to execute</span>
+			<ul>
+				<li *ngFor="let item of commands"
+					[class.selected]="item === predictedCommand">
+					<strong>{{item.name}}</strong> <i *ngIf="item.helpText">- {{item.helpText}}</i>
+				</li>
+			</ul>
+		</div>
 	</div>
 	<div>
 		<h2>Debug</h2>
