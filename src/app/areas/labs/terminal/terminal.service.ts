@@ -1,5 +1,4 @@
 import * as _ from "lodash";
-import {Injectable} from "@angular/core";
 
 export interface TerminalCommand {
 	// todo: implement name aliases
@@ -8,7 +7,6 @@ export interface TerminalCommand {
 	execute(...args: any[]): void;
 }
 
-@Injectable()
 export class TerminalService {
 
 	private commands = new Map<string, TerminalCommand>();
@@ -93,3 +91,5 @@ export class TerminalService {
 		console.groupEnd();
 	}
 }
+
+export const terminal = new TerminalService();

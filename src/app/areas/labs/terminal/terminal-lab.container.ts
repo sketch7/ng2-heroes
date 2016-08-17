@@ -1,3 +1,4 @@
+import * as _ from "lodash";
 import {Observable} from "rxjs/Observable";
 import {Component} from "@angular/core";
 import {FormControl} from "@angular/forms";
@@ -5,6 +6,9 @@ import {LoggerFactory, ILog} from "@ssv/ng2-core";
 
 import {TerminalService, TerminalCommand} from "./terminal.service";
 import {TerminalComponent} from "./terminal.component";
+import {RegisterCommand, CONFIG} from "./terminal.decorator";
+
+CONFIG.nameFormatter = (name: string): string => _.kebabCase(name);
 
 @Component({
 	moduleId: module.id,
@@ -45,12 +49,17 @@ export class TerminalLabContainer {
 				name: "set-health",
 				helpText: "set health to given amount e.g. 500",
 				execute: value => this.health = value
-			})
-			.register({
-				name: "reload",
-				helpText: "reloads the window",
-				execute: () => window.location.reload()
 			});
+	}
+
+	@RegisterCommand({ helpText: "simply add a log!" })
+	simpleLog() {
+		console.log("simple log!");
+	}
+
+	@RegisterCommand({ name: "reload", helpText: "reloads the window" })
+	reloadWindow() {
+		window.location.reload();
 	}
 
 }
