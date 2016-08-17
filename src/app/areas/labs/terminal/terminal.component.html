@@ -16,8 +16,8 @@
 				 />
 		</div>
 	</div>
-	<div class="terminal-autocomplete" >
-		<div class="terminal-autocomplete-inner" *ngIf="commands$ | async">
+	<div class="terminal-autocomplete">
+		<div class="terminal-autocomplete-inner" *ngIf="commands">
 			<span class="terminal-autocomplete-hint">*Press <kbd>Tab</kbd> to cycle between commands</span>
 			<span class="terminal-autocomplete-hint">*Press <kbd>Enter</kbd> to execute</span>
 			<ul>

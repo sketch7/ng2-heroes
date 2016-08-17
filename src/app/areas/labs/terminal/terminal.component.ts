@@ -1,9 +1,10 @@
-import {Observable} from "rxjs/Observable";
-import {Component, OnInit} from "@angular/core";
-import {FormControl} from "@angular/forms";
-import {LoggerFactory, ILog} from "@ssv/ng2-core";
+import { Observable } from "rxjs/Observable";
+import { Subscription } from "rxjs/Subscription";
+import { Component, OnInit, OnDestroy } from "@angular/core";
+import { FormControl } from "@angular/forms";
+import { LoggerFactory, ILog } from "@ssv/ng2-core";
 
-import {TerminalService, TerminalCommand} from "./terminal.service";
+import { TerminalService, TerminalCommand } from "./terminal.service";
 
 const TAB_KEY_CODE = 9;
 
@@ -12,10 +13,10 @@ const TAB_KEY_CODE = 9;
 	selector: "ssv-terminal",
 	templateUrl: "terminal.component.html"
 })
-export class TerminalComponent implements OnInit {
+export class TerminalComponent implements OnInit, OnDestroy {
 
 	command = new FormControl();
-	commands$: Observable<TerminalCommand[]>;
+	commands$$: Subscription;
 	commands: TerminalCommand[];
 	commandIndex = -1;
 
@@ -30,14 +31,15 @@ export class TerminalComponent implements OnInit {
 	}
 
 	ngOnInit() {
-		this.commands$ = this.command.valueChanges
+		this.commands$$ = this.command.valueChanges
 			.debounceTime(300)
 			.distinctUntilChanged()
 			.filter((x: string) => !this.predictedCommand || this.predictedCommand.name !== x)
 			.do(() => this.commandIndex = -1)
 			.map(x => this.terminalService.queryCommands(x))
 			.do(x => this.commands = x)
-			.do(x => this.commandIndex = this.findCommandIndex(x, this.command.value));
+			.do(x => this.commandIndex = this.findCommandIndex(x, this.command.value))
+			.subscribe();
 
 		Observable.fromEvent<KeyboardEvent>(document, "keydown")
 			.filter((x) => x.keyCode === TAB_KEY_CODE)
@@ -51,6 +53,12 @@ export class TerminalComponent implements OnInit {
 				this.command.setValue(this.predictedCommand.name);
 			})
 			.subscribe();
+	}
+
+	ngOnDestroy() {
+		if (this.commands$$) {
+			this.commands$$.unsubscribe();
+		}
 	}
 
 	execute(): void {
