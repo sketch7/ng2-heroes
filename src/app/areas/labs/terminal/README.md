@@ -12,6 +12,7 @@ command system.
 	- esc to clear
 	- show current selected command info?
 	- parse command naming for UI selection when passing args
+	- handle autocompletation click to prefill command
  - Command
 	- Icon?
 	- tag?
