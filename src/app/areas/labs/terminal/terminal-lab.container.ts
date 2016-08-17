@@ -8,6 +8,7 @@ import {TerminalService, TerminalCommand} from "./terminal.service";
 import {TerminalComponent} from "./terminal.component";
 import {RegisterCommand, CONFIG} from "./terminal.decorator";
 
+// changes default command name formatting when registering via decorator to use kebab casing.
 CONFIG.nameFormatter = (name: string): string => _.kebabCase(name);
 
 @Component({
