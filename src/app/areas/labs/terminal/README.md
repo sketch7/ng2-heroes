@@ -5,12 +5,21 @@ command system.
 ## Todo
  - Service
 	- command name aliases e.g. [help, ?]
-	- recent executed commands
+	- track executed commands (name, count, time)
+		- recent executed commands
+		- most executed commands
  - Component
 	- esc to clear
+	- show current selected command info?
+	- parse command naming for UI selection when passing args
+ - Command
+	- Icon?
+	- tag?
 
 
 # Usage
+
+TODO
 
 
 ## Configure Global
