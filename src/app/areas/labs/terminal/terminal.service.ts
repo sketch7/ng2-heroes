@@ -52,7 +52,7 @@ export class TerminalService {
 	private registerInternalCommands() {
 		this.register({
 			name: "help",
-			helpText: "lists available commands",
+			helpText: "lists available commands in console",
 			execute: this.helpCommand.bind(this)
 		});
 	}
