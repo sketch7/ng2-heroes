@@ -5,7 +5,6 @@ import {FormControl} from "@angular/forms";
 import {LoggerFactory, ILog} from "@ssv/ng2-core";
 
 import {TerminalService, TerminalCommand} from "./terminal.service";
-import {TerminalComponent} from "./terminal.component";
 import {RegisterCommand, CONFIG} from "./terminal.decorator";
 
 // changes default command name formatting when registering via decorator to use kebab casing.
@@ -14,10 +13,7 @@ CONFIG.nameFormatter = (name: string): string => _.kebabCase(name);
 @Component({
 	moduleId: module.id,
 	selector: "app-terminal-lab-container",
-	templateUrl: "terminal-lab.container.html",
-	directives: [
-		TerminalComponent
-	]
+	templateUrl: "terminal-lab.container.html"
 })
 export class TerminalLabContainer {
 
