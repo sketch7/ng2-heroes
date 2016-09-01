@@ -22,22 +22,29 @@ Structure is not entirely polished for production e.g. no bundling
 
 # Getting started
 
-
 ## Install
 
-```
-npm install
+### Automated
+ - Open powershell within dir **as admin**
+ - run `.\setup.ps1`
+ - run `gulp watch`
 
-// create symbolic link in `wwwroot` to point to `node_modules`
-```
+### Manual
+ - run `npm install`
+ - create symbolic link in `wwwroot` to point to `node_modules`
+ - run `gulp build`
+ - run `gulp watch`
 
-## Build
+
+## Utils
+
+### Build
 
 ```
 gulp build
 ```
 
-## Run/watch
+### Run/watch
 
 ```
 gulp watch
