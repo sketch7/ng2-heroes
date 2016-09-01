@@ -5,9 +5,7 @@ import {Subject} from "rxjs/Subject";
 @Component({
 	moduleId: module.id,
 	selector: "app-hero-filter",
-	templateUrl: "hero-filter.component.html",
-	directives: [
-	]
+	templateUrl: "hero-filter.component.html"
 })
 export class HeroFilterComponent {
 

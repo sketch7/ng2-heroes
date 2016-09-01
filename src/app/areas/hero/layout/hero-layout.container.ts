@@ -3,17 +3,13 @@ import {Store} from "@ngrx/store";
 import {Observable} from "rxjs/Observable";
 
 import {AppState} from "../../../app.state";
-import {HeroListComponent} from "../../../components/index";
 import {Hero} from "../hero.model";
 import {HeroSelector} from "../hero.selector";
 
 @Component({
 	moduleId: module.id,
 	selector: "app-hero-layout-container",
-	templateUrl: "hero-layout.container.html",
-	directives: [
-		HeroListComponent
-	]
+	templateUrl: "hero-layout.container.html"
 })
 export class HeroLayoutContainer implements OnInit {
 

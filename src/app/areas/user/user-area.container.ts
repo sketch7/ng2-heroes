@@ -4,7 +4,6 @@ import {Store} from "@ngrx/store";
 import {utils} from "ssv-core";
 
 import {AppState} from "../../app.state";
-import {UserAreaComponent}  from "../../components/index";
 import {NotificationSelector, NotificationAction} from "../notification/index";
 import {UserSelector} from "./user.selector";
 import {UserState} from "./user.model";
@@ -12,10 +11,7 @@ import {UserState} from "./user.model";
 @Component({
 	moduleId: module.id,
 	selector: "app-user-area-container",
-	templateUrl: "user-area.container.html",
-	directives: [
-		UserAreaComponent
-	]
+	templateUrl: "user-area.container.html"
 })
 export class UserAreaContainer implements OnInit, OnDestroy {
 

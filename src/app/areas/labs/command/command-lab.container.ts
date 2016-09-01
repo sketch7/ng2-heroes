@@ -2,16 +2,13 @@ import {BehaviorSubject, Observable} from "rxjs/Rx";
 import {Component} from "@angular/core";
 import {utils} from "ssv-core";
 import {LoggerFactory, ILog} from "@ssv/ng2-core";
-import {CommandDirective, Command, ICommand} from "@ssv/ng2-command";
+import {Command, ICommand} from "@ssv/ng2-command";
 
 
 @Component({
 	moduleId: module.id,
 	selector: "app-command-lab-container",
-	templateUrl: "command-lab.container.html",
-	directives: [
-		CommandDirective
-	]
+	templateUrl: "command-lab.container.html"
 })
 export class CommandLabContainer {
 

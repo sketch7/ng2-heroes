@@ -10,10 +10,10 @@ export * from "./hero.reducer";
 export * from "./hero.action";
 export * from "./hero.effect";
 
-export * from "./layout/hero-layout.container";
-export * from "./detail/hero-detail.container";
-export * from "./list/hero-list.container";
-export * from "./filter/hero-filter.component";
+export * from "./layout/index";
+export * from "./detail/index";
+export * from "./list/index";
+export * from "./filter/index";
 
 export * from "./hero.mock-data";
 
