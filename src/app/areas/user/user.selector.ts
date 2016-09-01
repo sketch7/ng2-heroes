@@ -1,7 +1,7 @@
 import * as _ from "lodash";
 import { Injectable } from "@angular/core";
 
-import { AppState } from "../../app.state";
+import { AppState } from "app";
 import { UserState } from "./user.model";
 
 @Injectable()

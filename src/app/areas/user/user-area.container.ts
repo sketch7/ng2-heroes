@@ -3,7 +3,7 @@ import { Observable } from "rxjs/Observable";
 import { Store } from "@ngrx/store";
 import { utils } from "ssv-core";
 
-import { AppState } from "../../app.state";
+import { AppState } from "app";
 import { NotificationSelector, NotificationAction } from "../notification/index";
 import { UserSelector } from "./user.selector";
 import { UserState } from "./user.model";

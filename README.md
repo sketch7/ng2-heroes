@@ -3,10 +3,11 @@ Playground/dojo for angular2 with a sample project structure, namely for testing
 It also features a mini application showcasing [Hereos of the Storm](http://us.battle.net/heroes/en/) heroes :).
 
 ## What does it have?
+ - typescript 2
  - gulp
  - sass
  - systemjs
- - angular2
+ - angular 2
  - routing
  - [redux](http://redux.js.org/) using [@ngrx](https://github.com/ngrx/store)
  - structure
