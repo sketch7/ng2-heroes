@@ -1,4 +1,5 @@
+export * from "./lib/index";
+
 export * from "./terminal-lab.container";
 export * from "./terminal.component";
-export * from "./terminal.service";
-export * from "./ng2";
+export * from "./terminal-command-register.service";

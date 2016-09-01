@@ -15,18 +15,22 @@ import {
 	NOTIFICATION_PROVIDERS,
 	HERO_PROVIDERS,
 	HeroEffect,
-	TERMINAL_PROVIDERS,
+
 	NavContainer,
 	UserAreaContainer,
-	TerminalComponent,
+
 	HomeContainer,
 	HeroFilterComponent,
 	HeroLayoutContainer,
 	HeroListContainer,
 	HeroDetailContainer,
 	LabsLayoutContainer,
-	TerminalLabContainer,
+
 	CommandLabContainer,
+	TerminalLabContainer,
+	TerminalComponent,
+	TerminalCommandRegisterService,
+	TERMINAL_PROVIDERS,
 } from "./areas/index";
 import {
 	HeroDetailComponent,
@@ -90,6 +94,7 @@ import { MockAppData } from "./app.mock-data";
 		NOTIFICATION_PROVIDERS,
 		HERO_PROVIDERS,
 		TERMINAL_PROVIDERS,
+		TerminalCommandRegisterService
 	]
 })
 export class AppModule {

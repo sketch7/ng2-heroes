@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { Store } from "@ngrx/store";
 
-import { HeroAction } from "./areas/index";
+import { HeroAction, TerminalCommandRegisterService } from "./areas/index";
 import { AppState } from "./app.state";
 
 @Component({
@@ -13,12 +13,14 @@ export class AppComponent implements OnInit {
 
 	constructor(
 		private store: Store<AppState>,
-		private heroAction: HeroAction
+		private heroAction: HeroAction,
+		private terminalCommandRegister: TerminalCommandRegisterService,
 	) {
 
 	}
 
 	ngOnInit() {
+		this.terminalCommandRegister.registerCommands();
 		this.store.dispatch(this.heroAction.fetchAll());
 	}
 }

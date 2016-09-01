@@ -4,7 +4,7 @@ import { Component, OnInit, OnDestroy } from "@angular/core";
 import { FormControl } from "@angular/forms";
 import { LoggerFactory, ILog } from "@ssv/ng2-core";
 
-import { TerminalService, TerminalCommand } from "./terminal.service";
+import { TerminalService, TerminalCommand } from "./lib/index";
 
 const TAB_KEY_CODE = 9;
 

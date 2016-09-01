@@ -17,7 +17,6 @@ command system.
 	- Icon?
 	- tag?
 
-
 # Usage
 
 TODO
@@ -26,7 +25,7 @@ TODO
 ## Configure Global
 
 ### Decorator default name formatter
-Change default name formatter when using `@RegisterCommand` decorator e.g. from camelCase to kebabs.
+Change default name formatter when using `@registerCommand` decorator e.g. from camelCase to kebabs.
 e.g. `doSomething` => `do-something`.
 
 ```ts
