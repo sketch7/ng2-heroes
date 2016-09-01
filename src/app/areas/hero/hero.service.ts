@@ -26,8 +26,6 @@ export class HeroService {
 
 	getByKey(key: string): Observable<Hero> {
 		return this.getAll()
-			.map(x => {
-				return _.find(x, { key: key });
-			});
+			.map(x => _.find(x, { key: key }));
 	}
 }
