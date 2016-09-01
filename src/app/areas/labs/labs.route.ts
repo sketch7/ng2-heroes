@@ -1,8 +1,8 @@
-import {Routes} from "@angular/router";
+import { Routes } from "@angular/router";
 
-import {LabsLayoutContainer} from "./layout/index";
-import {CommandLabContainer} from "./command/index";
-import {TerminalLabContainer} from "./terminal/index";
+import { LabsLayoutContainer } from "./layout/index";
+import { CommandLabContainer } from "./command/index";
+import { TerminalLabContainer } from "./terminal/index";
 
 export const labsRoutes: Routes = [
 	{

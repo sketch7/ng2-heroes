@@ -1,7 +1,7 @@
-import {Action} from "@ngrx/store";
+import { Action } from "@ngrx/store";
 
-import {notificationAction} from "./notification.action";
-import {NotificationState} from "./notification.model";
+import { notificationAction } from "./notification.action";
+import { NotificationState } from "./notification.model";
 
 const initialState: NotificationState = {
 	items: [

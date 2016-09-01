@@ -1,11 +1,11 @@
 import * as _ from "lodash";
-import {Injectable} from "@angular/core";
-import {Store} from "@ngrx/store";
-import {Observable} from "rxjs/Observable";
+import { Injectable } from "@angular/core";
+import { Store } from "@ngrx/store";
+import { Observable } from "rxjs/Observable";
 import * as Fuse from "fuse";
 
-import {AppState} from "../../app.state";
-import {Hero} from "./hero.model";
+import { AppState } from "../../app.state";
+import { Hero } from "./hero.model";
 
 @Injectable()
 export class HeroSelector {

@@ -1,7 +1,7 @@
-import {Injectable} from "@angular/core";
-import {Action} from "@ngrx/store";
+import { Injectable } from "@angular/core";
+import { Action } from "@ngrx/store";
 
-import {NotificationMessage} from "./notification.model";
+import { NotificationMessage } from "./notification.model";
 
 const ACTION_PREFIX = "[notification]";
 export const notificationAction = {

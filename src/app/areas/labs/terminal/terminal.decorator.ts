@@ -1,4 +1,4 @@
-import {terminal} from "./terminal.service";
+import { terminal } from "./terminal.service";
 
 export const CONFIG = {
 	nameFormatter: (name: string): string => name

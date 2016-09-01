@@ -1,4 +1,4 @@
-import {Hero} from "./hero.model";
+import { Hero } from "./hero.model";
 
 export let heroes: Hero[] = [
 	{

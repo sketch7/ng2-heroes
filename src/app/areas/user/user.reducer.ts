@@ -1,7 +1,7 @@
-import {Action} from "@ngrx/store";
+import { Action } from "@ngrx/store";
 
-import {userAction} from "./user.action";
-import {UserState} from "./user.model";
+import { userAction } from "./user.action";
+import { UserState } from "./user.model";
 
 const initialState: UserState = {
 	alias: "Chiko"

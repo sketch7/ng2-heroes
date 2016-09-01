@@ -1,8 +1,8 @@
-import {Component, OnInit} from "@angular/core";
-import {Store} from "@ngrx/store";
+import { Component, OnInit } from "@angular/core";
+import { Store } from "@ngrx/store";
 
-import {HeroAction} from "./areas/index";
-import {AppState} from "./app.state";
+import { HeroAction } from "./areas/index";
+import { AppState } from "./app.state";
 
 @Component({
 	moduleId: module.id,

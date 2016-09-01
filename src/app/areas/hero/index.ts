@@ -1,7 +1,7 @@
-import {HeroClient} from "./hero.client";
-import {HeroService} from "./hero.service";
-import {HeroAction} from "./hero.action";
-import {HeroSelector} from "./hero.selector";
+import { HeroClient } from "./hero.client";
+import { HeroService } from "./hero.service";
+import { HeroAction } from "./hero.action";
+import { HeroSelector } from "./hero.selector";
 
 export * from "./hero.model";
 export * from "./hero.service";

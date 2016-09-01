@@ -1,5 +1,5 @@
-import {Injectable} from "@angular/core";
-import {Action} from "@ngrx/store";
+import { Injectable } from "@angular/core";
+import { Action } from "@ngrx/store";
 
 const ACTION_PREFIX = "[user]";
 export const userAction = {

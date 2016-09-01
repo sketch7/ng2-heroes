@@ -1,8 +1,8 @@
-import {BehaviorSubject, Observable} from "rxjs/Rx";
-import {Component} from "@angular/core";
-import {utils} from "ssv-core";
-import {LoggerFactory, ILog} from "@ssv/ng2-core";
-import {Command, ICommand} from "@ssv/ng2-command";
+import { BehaviorSubject, Observable } from "rxjs/Rx";
+import { Component } from "@angular/core";
+import { utils } from "ssv-core";
+import { LoggerFactory, ILog } from "@ssv/ng2-core";
+import { Command, ICommand } from "@ssv/ng2-command";
 
 
 @Component({

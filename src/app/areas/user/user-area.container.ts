@@ -1,12 +1,12 @@
-import {Component, OnInit, OnDestroy} from "@angular/core";
-import {Observable} from "rxjs/Observable";
-import {Store} from "@ngrx/store";
-import {utils} from "ssv-core";
+import { Component, OnInit, OnDestroy } from "@angular/core";
+import { Observable } from "rxjs/Observable";
+import { Store } from "@ngrx/store";
+import { utils } from "ssv-core";
 
-import {AppState} from "../../app.state";
-import {NotificationSelector, NotificationAction} from "../notification/index";
-import {UserSelector} from "./user.selector";
-import {UserState} from "./user.model";
+import { AppState } from "../../app.state";
+import { NotificationSelector, NotificationAction } from "../notification/index";
+import { UserSelector } from "./user.selector";
+import { UserState } from "./user.model";
 
 @Component({
 	moduleId: module.id,

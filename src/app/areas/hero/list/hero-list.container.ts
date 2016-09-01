@@ -1,11 +1,11 @@
-import {Component, OnInit} from "@angular/core";
-import {Store} from "@ngrx/store";
-import {Observable} from "rxjs/Observable";
+import { Component, OnInit } from "@angular/core";
+import { Store } from "@ngrx/store";
+import { Observable } from "rxjs/Observable";
 
-import {AppState} from "../../../app.state";
-import {Hero} from "../hero.model";
-import {HeroSelector} from "../hero.selector";
-import {HeroAction} from "../hero.action";
+import { AppState } from "../../../app.state";
+import { Hero } from "../hero.model";
+import { HeroSelector } from "../hero.selector";
+import { HeroAction } from "../hero.action";
 
 @Component({
 	moduleId: module.id,

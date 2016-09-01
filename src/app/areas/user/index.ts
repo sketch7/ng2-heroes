@@ -1,5 +1,5 @@
-import {UserAction} from "./user.action";
-import {UserSelector} from "./user.selector";
+import { UserAction } from "./user.action";
+import { UserSelector } from "./user.selector";
 
 export * from "./user.action";
 export * from "./user.model";

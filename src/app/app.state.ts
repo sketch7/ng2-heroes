@@ -1,4 +1,4 @@
-import {HeroState, UserState, NotificationState} from "./areas/index";
+import { HeroState, UserState, NotificationState } from "./areas/index";
 
 export interface AppState {
 	hero: HeroState;

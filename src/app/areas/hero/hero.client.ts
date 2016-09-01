@@ -1,8 +1,8 @@
-import {Injectable} from "@angular/core";
-import {Http, Response} from "@angular/http";
-import {Observable} from "rxjs/Observable";
+import { Injectable } from "@angular/core";
+import { Http, Response } from "@angular/http";
+import { Observable } from "rxjs/Observable";
 
-import {Hero} from "./hero.model";
+import { Hero } from "./hero.model";
 
 @Injectable()
 export class HeroClient {

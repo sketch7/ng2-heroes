@@ -1,8 +1,8 @@
 import * as _ from "lodash";
-import {Injectable} from "@angular/core";
+import { Injectable } from "@angular/core";
 
-import {AppState} from "../../app.state";
-import {NotificationMessage} from "./notification.model";
+import { AppState } from "../../app.state";
+import { NotificationMessage } from "./notification.model";
 
 @Injectable()
 export class NotificationSelector {

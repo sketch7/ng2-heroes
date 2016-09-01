@@ -1,5 +1,5 @@
-import {NotificationAction} from "./notification.action";
-import {NotificationSelector} from "./notification.selector";
+import { NotificationAction } from "./notification.action";
+import { NotificationSelector } from "./notification.selector";
 
 export * from "./notification.action";
 export * from "./notification.model";

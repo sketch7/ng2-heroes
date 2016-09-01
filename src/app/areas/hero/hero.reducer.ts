@@ -1,7 +1,7 @@
-import {Action} from "@ngrx/store";
+import { Action } from "@ngrx/store";
 
-import {heroAction} from "./hero.action";
-import {HeroState, Hero} from "./hero.model";
+import { heroAction } from "./hero.action";
+import { HeroState, Hero } from "./hero.model";
 
 const initialState: HeroState = {
 	isBusy: false,

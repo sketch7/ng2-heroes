@@ -1,11 +1,11 @@
 import * as _ from "lodash";
-import {Observable} from "rxjs/Observable";
-import {Component} from "@angular/core";
-import {FormControl} from "@angular/forms";
-import {LoggerFactory, ILog} from "@ssv/ng2-core";
+import { Observable } from "rxjs/Observable";
+import { Component } from "@angular/core";
+import { FormControl } from "@angular/forms";
+import { LoggerFactory, ILog } from "@ssv/ng2-core";
 
-import {TerminalService, TerminalCommand} from "./terminal.service";
-import {RegisterCommand, CONFIG} from "./terminal.decorator";
+import { TerminalService, TerminalCommand } from "./terminal.service";
+import { RegisterCommand, CONFIG } from "./terminal.decorator";
 
 // changes default command name formatting when registering via decorator to use kebab casing.
 CONFIG.nameFormatter = (name: string): string => _.kebabCase(name);

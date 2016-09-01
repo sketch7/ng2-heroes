@@ -1,6 +1,6 @@
-import {Component, Input, Output} from "@angular/core";
-import {Observable} from "rxjs/Observable";
-import {Subject} from "rxjs/Subject";
+import { Component, Input, Output } from "@angular/core";
+import { Observable } from "rxjs/Observable";
+import { Subject } from "rxjs/Subject";
 
 @Component({
 	moduleId: module.id,

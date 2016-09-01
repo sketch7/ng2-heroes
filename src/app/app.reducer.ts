@@ -1,4 +1,8 @@
-import {heroesReducer, userReducer, notificationReducer} from "./areas/index";
+import {
+	heroesReducer,
+	userReducer,
+	notificationReducer
+} from "./areas/index";
 
 export let appReducer = {
 	hero: heroesReducer,
