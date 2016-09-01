@@ -1,12 +1,12 @@
 import {NgModule} from "@angular/core";
 import {BrowserModule} from "@angular/platform-browser";
-import {HttpModule, XHRBackend} from "@angular/http";
+import {HttpModule} from "@angular/http";
 import {FormsModule, ReactiveFormsModule } from "@angular/forms";
 import {compose} from "@ngrx/core/compose";
 import {provideStore, combineReducers} from "@ngrx/store";
-import {runEffects} from "@ngrx/effects";
+import {EffectsModule} from "@ngrx/effects";
 import {storeLogger} from "ngrx-store-logger";
-import {InMemoryBackendService, SEED_DATA, InMemoryBackendConfig} from "angular2-in-memory-web-api/core";
+import {InMemoryWebApiModule} from "angular2-in-memory-web-api";
 import {CoreModule} from "@ssv/ng2-core";
 import {CommandConfig, CommandOptions} from "@ssv/ng2-command";
 
@@ -30,8 +30,13 @@ import {MockAppData} from "./app.mock-data";
 		FormsModule,
 		ReactiveFormsModule,
 		routing,
+
 		// @ssv
-		CoreModule
+		CoreModule,
+
+		// others
+		InMemoryWebApiModule.forRoot(MockAppData, { delay: 120 }),
+		EffectsModule.run(HeroEffect)
 	],
 	declarations: [
 		AppComponent
@@ -44,12 +49,6 @@ import {MockAppData} from "./app.mock-data";
 				combineReducers
 			)(appReducer)
 		),
-		runEffects([HeroEffect]),
-
-		// in memory web api providers
-		{ provide: XHRBackend, useClass: InMemoryBackendService },
-		{ provide: SEED_DATA, useClass: MockAppData },
-		{ provide: InMemoryBackendConfig, useValue: { delay: 120 } },
 
 		// @ssv
 		{ provide: CommandConfig, useValue: { executingCssClass: "is-busy" } as CommandOptions },
