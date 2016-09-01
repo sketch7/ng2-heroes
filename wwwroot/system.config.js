@@ -30,7 +30,7 @@
 		"app": { defaultExtension: "js" },
 		"rxjs": { defaultExtension: "js" },
 		"ngrx-store-logger": { main: "dist/index.js", defaultExtension: "js" },
-		"angular2-in-memory-web-api": { defaultExtension: "js" },
+		"angular2-in-memory-web-api": { main: "./index.js", defaultExtension: "js" },
 		"ssv-core": { main: "dist/amd/index.js" },
 		"@ssv/ng2-core": { main: "dist/amd/index.js" },
 		"@ssv/ng2-command": { main: "dist/amd/index.js" },
