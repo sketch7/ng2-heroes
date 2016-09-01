@@ -26,7 +26,7 @@ export class HeroListContainer implements OnInit {
 	}
 
 	ngOnInit() {
-		this.heroes$ = this.selector.getAllWithFilter(this.store);
+		this.heroes$ = this.store.let(this.selector.getAllWithFilter());
 		this.searchTerm$ = this.store.select(this.selector.getFilter());
 	}
 

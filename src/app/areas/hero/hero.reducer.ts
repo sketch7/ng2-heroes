@@ -24,7 +24,6 @@ export function heroesReducer(state: HeroState = initialState, action: Action): 
 			return Object.assign({}, state, {
 				isBusy: false
 			});
-
 		case heroAction.filter:
 			return Object.assign({}, state, {
 				filterTerm: action.payload
