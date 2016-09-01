@@ -6,7 +6,6 @@ import { Action } from "@ngrx/store";
 import { HeroAction, heroAction } from "./hero.action";
 import { HeroService } from "./hero.service";
 
-
 @Injectable()
 export class HeroEffect {
 
