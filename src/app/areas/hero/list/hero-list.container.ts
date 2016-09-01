@@ -3,8 +3,6 @@ import {Store} from "@ngrx/store";
 import {Observable} from "rxjs/Observable";
 
 import {AppState} from "../../../app.state";
-import {HeroListComponent} from "../../../components/index";
-import {HeroFilterComponent} from "../filter/index";
 import {Hero} from "../hero.model";
 import {HeroSelector} from "../hero.selector";
 import {HeroAction} from "../hero.action";
@@ -12,11 +10,7 @@ import {HeroAction} from "../hero.action";
 @Component({
 	moduleId: module.id,
 	selector: "app-hero-list-container",
-	templateUrl: "hero-list.container.html",
-	directives: [
-		HeroListComponent,
-		HeroFilterComponent
-	]
+	templateUrl: "hero-list.container.html"
 })
 export class HeroListContainer implements OnInit {
 
