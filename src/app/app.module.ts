@@ -3,7 +3,7 @@ import { BrowserModule } from "@angular/platform-browser";
 import { HttpModule } from "@angular/http";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { compose } from "@ngrx/core/compose";
-import { provideStore, combineReducers } from "@ngrx/store";
+import { StoreModule, combineReducers } from "@ngrx/store";
 import { EffectsModule } from "@ngrx/effects";
 import { storeLogger } from "ngrx-store-logger";
 import { InMemoryWebApiModule } from "angular2-in-memory-web-api";
@@ -50,6 +50,12 @@ import { MockAppData } from "./app.mock-data";
 		FormsModule,
 		ReactiveFormsModule,
 		routing,
+		StoreModule.provideStore(
+			compose(
+				storeLogger(),
+				combineReducers
+			)(appReducer)
+		),
 
 		// @ssv
 		CoreModule,
@@ -80,13 +86,6 @@ import { MockAppData } from "./app.mock-data";
 	],
 	bootstrap: [AppComponent],
 	providers: [
-		provideStore(
-			compose(
-				storeLogger(),
-				combineReducers
-			)(appReducer)
-		),
-
 		// @ssv
 		{ provide: CommandConfig, useValue: { executingCssClass: "is-busy" } as CommandOptions },
 

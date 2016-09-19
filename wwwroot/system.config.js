@@ -34,12 +34,12 @@
 		"ssv-core": { main: "dist/amd/index.js" },
 		"@ssv/ng2-core": { main: "dist/amd/index.js" },
 		"@ssv/ng2-command": { main: "dist/amd/index.js" },
-		"fuse": { main: "fuse.js" }
+		"fuse": { main: "fuse.js" },
+		"@ngrx/core": { main: "bundles/core.min.umd.js" },
+		"@ngrx/store": { main: "bundles/store.min.umd.js" },
 	};
 
 	var packageNames = [
-		"@ngrx/core",
-		"@ngrx/store",
 		"@ngrx/effects",
 		"lodash"
 	];
