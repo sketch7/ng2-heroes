@@ -28,7 +28,7 @@ gulp.task("compile:ts", () => {
 		.pipe(plumber())
 	//.pipe(changed(paths.output.dist, { extension: ".js" }))
 		.pipe(sourcemaps.init())
-		.pipe(tsc(tsProject));
+		.pipe(tsProject());
 
 	return tsResult.js
 		.pipe(sourcemaps.write("."))
@@ -37,7 +37,6 @@ gulp.task("compile:ts", () => {
 
 function getTscProject() {
 	return tsc.createProject("tsconfig.json", {
-		sortOutput: true,
 		typescript: typescript
 	});
 }
