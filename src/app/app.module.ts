@@ -8,7 +8,7 @@ import { EffectsModule } from "@ngrx/effects";
 import { storeLogger } from "ngrx-store-logger";
 import { InMemoryWebApiModule } from "angular2-in-memory-web-api";
 import { CoreModule } from "@ssv/ng2-core";
-import { CommandDirective, CommandConfig, CommandOptions } from "@ssv/ng2-command";
+import { CommandModule } from "@ssv/ng2-command";
 
 import {
 	USER_PROVIDERS,
@@ -59,6 +59,7 @@ import { MockAppData } from "./app.mock-data";
 
 		// @ssv
 		CoreModule,
+		CommandModule.forRoot({ executingCssClass: "is-busy" }),
 
 		// others
 		InMemoryWebApiModule.forRoot(MockAppData, { delay: 120 }),
@@ -80,15 +81,9 @@ import { MockAppData } from "./app.mock-data";
 		HomeContainer,
 		LabsLayoutContainer,
 		CommandLabContainer,
-
-		// @ssv
-		CommandDirective,
 	],
 	bootstrap: [AppComponent],
 	providers: [
-		// @ssv
-		{ provide: CommandConfig, useValue: { executingCssClass: "is-busy" } as CommandOptions },
-
 		USER_PROVIDERS,
 		NOTIFICATION_PROVIDERS,
 		HERO_PROVIDERS,
