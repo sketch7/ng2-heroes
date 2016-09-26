@@ -52,9 +52,7 @@
 		"http",
 		"platform-browser",
 		"platform-browser-dynamic",
-		"router",
-		"router-deprecated",
-		"upgrade",
+		"router"
 	];
 
 	// add package entries for angular packages in the form "@angular/common": { main: "index.js", defaultExtension: "js" }
