@@ -1,5 +1,5 @@
-# ng2-dojo
-Angular 2 heroes sample project which features a mini application showcasing [Hereos of the Storm](http://us.battle.net/heroes/en/) heroes.
+# ng2-heroes
+Angular 2 heroes sample project with a mini application of [Hereos of the Storm](http://us.battle.net/heroes/en/) heroes.
 
 ## What does it have?
  - gulp
