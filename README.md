@@ -1,6 +1,5 @@
-# ssv-ng2-dojo
-Playground/dojo for angular2 with a sample project structure, namely for testing purposes.
-It also features a mini application showcasing [Hereos of the Storm](http://us.battle.net/heroes/en/) heroes :).
+# ng2-dojo
+Angular 2 heroes sample project which features a mini application showcasing [Hereos of the Storm](http://us.battle.net/heroes/en/) heroes.
 
 ## What does it have?
  - gulp
